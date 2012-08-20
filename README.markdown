@@ -2,6 +2,8 @@
 
 Real live hobos for use with CakePHP
 
+![reasons](http://f.cl.ly/items/2M0b360C1S2b1V2u0U3w/tumblr_lubo5uAxHm1qhplz8o2_250.jpeg)
+
 ## Requirements
 
 - OS X or Linux. Windows should also be supported, but untested!
