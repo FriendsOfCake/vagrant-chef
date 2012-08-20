@@ -1,0 +1,22 @@
+server {
+	listen   80; ## listen for ipv4; this line is default and implied
+	root /usr/share/nginx/www;
+	index index.html index.htm;
+	server_name localhost;
+
+	location / {
+		try_files $uri $uri/ /index.html;
+	}
+
+	location /doc {
+		root /usr/share;
+		autoindex on;
+		allow 127.0.0.1;
+		deny all;
+	}
+
+	location /images {
+		root /usr/share;
+		autoindex off;
+	}
+}

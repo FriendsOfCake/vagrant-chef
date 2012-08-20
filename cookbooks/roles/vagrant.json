@@ -1,0 +1,33 @@
+{
+  "name": "vagrant",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "vagrant instance, responsible for deploying a vm for a developer",
+  "override_attributes": {
+    "box_name": "vagrant",
+    "mysql": {
+      "bind_address": false,
+      "tmpdir": "/tmp",
+      "server_id": 1,
+      "innodb_log_file_size": false,
+      "root_password": "bananas"
+    },
+    "authorization": {
+      "sudo": { "users": [ "deploy", "vagrant" ] }
+    },
+    "nginx": {
+      "worker_connections": 768,
+      "keepalive_timeout": 2
+    }
+  },
+  "default_attributes": {},
+  "run_list": [
+    "recipe[system::update]",
+    "recipe[hostname::default]",
+    "recipe[percona::server]",
+    "recipe[percona::client]",
+    "recipe[php::install]",
+    "recipe[nginx::server]",
+    "recipe[cakephp::setup]"
+  ]
+}

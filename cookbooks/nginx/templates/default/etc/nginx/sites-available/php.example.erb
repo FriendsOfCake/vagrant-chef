@@ -1,0 +1,13 @@
+server {
+	listen 80;
+	server_name phpsite.com;
+	root /var/virtual/phpsite.com;
+	access_log /var/log/nginx/phpsite.com-access.log;
+	include common.conf;
+	include php.conf;
+}
+server {
+	listen 80;
+	server_name www.phpsite.com;
+	rewrite ^ http://phpsite.com$uri permanent;
+}
