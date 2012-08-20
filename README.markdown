@@ -1,4 +1,4 @@
-# SG Vagrant
+# Cake Vagrant
 
 Real live hobos for use with CakePHP
 
