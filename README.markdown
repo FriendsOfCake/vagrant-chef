@@ -33,7 +33,7 @@ You can grab a coffee or go out for a beer at this point. Takes about half an ho
 
 Of note is that typing `vagrant ssh` while your vagrant instance is up will ssh onto the instance so you can perform commands directly on it. For example, it might be useful to manually install some service, or run a script within the repository.
 
-Once it is done, browse to `http://http://192.168.13.37/` in your browser, and you should have some sort of `It works!` page! At this point you can set your virtualhosts to point at the instance for maximum win.
+Once it is done, browse to `http://192.168.13.37/` in your browser, and you should have some sort of `It works!` page! At this point you can set your virtualhosts to point at the instance for maximum win.
 
 #### Custom Domain Name
 
