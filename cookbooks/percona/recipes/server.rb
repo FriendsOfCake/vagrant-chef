@@ -6,7 +6,6 @@ directory '/var/lib/mysql/binlogs' do
   mode  0755
   recursive true
   action :create
-  not_if { ::FileTest.directory?("/var/lib/mysql/binlogs") }
 end
 
 package "percona-server-server-5.5" do
