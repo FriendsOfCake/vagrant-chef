@@ -14,14 +14,11 @@ directory "/var/www" do
   action :create
 end
 
-git '/var/virtual/cakephp-1.3' do
-  repository 'git://github.com/cakephp/cakephp.git'
-  revision '1.3'
-  action :checkout
-end
-
-git '/var/virtual/cakephp-2.0' do
-  repository 'git://github.com/cakephp/cakephp.git'
-  revision '2.3'
-  action :checkout
+node['cakephp']['versions'].each do | version, should_install |
+  git "/var/virtual/cakephp-#{version}" do
+    repository 'git://github.com/cakephp/cakephp.git'
+    revision version
+    action :checkout
+    only_if { should_install }
+  end
 end

@@ -1,0 +1,2 @@
+default['cakephp']['versions'] = {
+}
