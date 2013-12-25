@@ -13,11 +13,11 @@ template "/etc/apt/sources.list.d/chris-lea.list" do
   notifies :run, "execute[apt-get update]", :immediately
 end
 
-package "redis" do
+package "redis-server" do
   action :install
 end
 
-service "redis" do
+service "redis-server" do
   supports :status => true, :restart => true, :reload => true
   action [ :enable, :start ]
 end
