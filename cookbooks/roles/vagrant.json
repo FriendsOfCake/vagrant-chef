@@ -24,8 +24,8 @@
   "run_list": [
     "recipe[system::update]",
     "recipe[hostname::default]",
-    "recipe[percona::server]",
     "recipe[percona::client]",
+    "recipe[percona::server]",
     "recipe[php::install]",
     "recipe[nginx::server]",
     "recipe[cakephp::setup]"
