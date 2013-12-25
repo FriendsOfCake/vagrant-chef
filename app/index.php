@@ -798,26 +798,7 @@ body.outlook p {
                       <table class="twelve columns">
                         <tr>
                           <td class="panel">
-                            Replace the <strong><code>app</code></strong> directory with your application and you'll be off to the races!
-                          </td>
-                          <td class="expander"></td>
-                        </tr>
-                      </table>
-
-                    </td>
-                  </tr>
-                </table>
-
-                <table class="row">
-                  <tr>
-                    <td class="wrapper">
-
-                      <table class="twelve columns">
-                        <tr>
-                          <td align="center">
-                            <center>
-                              <a href="https://github.com/josegonzalez/cake-vagrant#cake-vagrant" class="btn-primary">Read more instructions on GitHub</a>
-                            </center>
+                            <p style="text-align:center;padding-bottom:0;">Replace the <strong><code>app</code></strong> directory with your application and you'll be off to the races!</p>
                           </td>
                           <td class="expander"></td>
                         </tr>
@@ -835,7 +816,8 @@ body.outlook p {
                         <tbody><tr>
                           <td align="center">
                             <center>
-                              <p style="text-align:center;"><a href="http://friendsofcake.com/">FriendsOfCake</a> | <a href="https://github.com/josegonzalez/cake-vagrant">cake-vagrant</a></p>
+                              <a href="https://github.com/josegonzalez/cake-vagrant#cake-vagrant" class="btn-primary">Read more instructions on GitHub</a>
+                              <p style="font-size:80%;text-align:center;"><a href="https://github.com/josegonzalez/cake-vagrant">cake-vagrant</a> provided by <a href="http://friendsofcake.com/">FriendsOfCake</a></p>
                             </center>
                           </td>
                           <td class="expander"></td>
