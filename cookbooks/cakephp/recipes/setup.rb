@@ -4,7 +4,6 @@ directory "/var/virtual" do
   mode  0755
   recursive true
   action :create
-  not_if { ::FileTest.directory?("/var/virtual") }
 end
 
 directory "/var/www" do
@@ -13,7 +12,6 @@ directory "/var/www" do
   mode  0755
   recursive true
   action :create
-  not_if { ::FileTest.directory?("/var/virtual") }
 end
 
 git '/var/virtual/cakephp-1.3' do
