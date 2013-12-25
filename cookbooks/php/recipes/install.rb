@@ -3,7 +3,6 @@
   "php5-cli",
   "php5-common",
   "php5-curl",
-  "php5-ffmpeg",
   "php5-fpm",
   "php5-gd",
   "php5-geoip",
