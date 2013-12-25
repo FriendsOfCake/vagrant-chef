@@ -28,6 +28,6 @@ execute 'set-mysql-root' do
 end
 
 template "/etc/mysql/my.cnf" do
-  source "etc/mysql/my.cnf.erb"
+  source "my.cnf.erb"
   variables :mysql => node['mysql']
 end

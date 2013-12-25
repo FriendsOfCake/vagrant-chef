@@ -9,7 +9,7 @@ execute "install php55 key" do
 end
 
 template "/etc/apt/sources.list.d/php55.list" do
-  source "etc/apt/sources.list.d/php55.list.erb"
+  source "php55.list.erb"
   notifies :run, "execute[apt-get update]", :immediately
 end
 
@@ -41,7 +41,7 @@ service "php5-fpm" do
 end
 
 template "/etc/php5/fpm/pool.d/www.conf.erb" do
-  source "etc/php5/fpm/pool.d/www.conf.erb"
+  source "www.conf.erb"
   owner "root"
   group "root"
   mode 0644

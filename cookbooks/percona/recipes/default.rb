@@ -9,7 +9,7 @@ execute "install percona key" do
 end
 
 template "/etc/apt/sources.list.d/percona.list" do
-  source "etc/apt/sources.list.d/percona.list.erb"
+  source "percona.list.erb"
   notifies :run, "execute[apt-get update]", :immediately
 end
 
