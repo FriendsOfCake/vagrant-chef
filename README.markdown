@@ -8,12 +8,14 @@ Cake-Vagrant creates a Vagrant installation using Chef with the following featur
 - Percona MySQL 5.5
 - Redis 2.8
 - Memcached 1.4
+- Git 1.7
+- Composer
 
 ## Requirements
 
 - OS X or Linux. Windows should also be supported, but untested!
-- [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Tested on 4.1.8, but 4.1.6 should also work.
-- [Vagrant](http://downloads.vagrantup.com/tags/v1.0.3). Tested on 1.0.3
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Tested on 4.3.x, but 4.2.x should also work.
+- [Vagrant](http://www.vagrantup.com/downloads.html). Tested on 1.4.1
 - Patience, and about an hour or so of your time
 - A fairly fast internet connection. Dial-up will take 3 days to get everything going ;)
 
@@ -46,6 +48,30 @@ If you want to access the site using a custom domain name, edit your `/etc/hosts
 
     192.168.13.37 www.app.dev app.dev
 
+#### Developing your application
+
+When you want to use vagrant instance for a development environment, you can replace the `app` directory with the contents of your application. This would be an example of your directory structure:
+
+    |-/vagrant/app
+    |-/vagrant/app/app
+    | |-/vagrant/app/app/Config
+    | |-/vagrant/app/app/Console
+    | |-/vagrant/app/app/Controller
+    | |-/vagrant/app/app/Lib
+    | |-/vagrant/app/app/Model
+    | |-/vagrant/app/app/Plugin
+    | |-/vagrant/app/app/tmp
+    | |-/vagrant/app/app/vendor
+    | |-/vagrant/app/app/View
+    | |-/vagrant/app/app/webroot
+    |-/vagrant/app/lib
+    |-/vagrant/app/Plugin
+    |-/vagrant/app/vendor
+
+Anything in `app/app/webroot/index.php` will be served up, and all other `index.php` files ignored.
+
+Note, we recommend using the [FriendsOfCake/app-template](https://github.com/FriendsOfCake/app-template) for new applications.
+
 ## Starting/Stopping Work
 
 You normally wont want to have the instance running full time. To pause it, simply perform the following in the command line:
@@ -77,8 +103,7 @@ We're sad to see you leave your work behind, but getting a fressh start isn't ha
     cd ..
     rm -rf cake-vagrant
 
-This will destroy your vagrant installation and remove all traces of it from your laptop. I think ;)
-
+This will destroy your vagrant installation and remove all traces of it from your laptop.
 
 ## Bugs?
 
