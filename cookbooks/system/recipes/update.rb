@@ -1,4 +1,4 @@
-execute "update apt" do
+execute "apt-get update" do
   command "apt-get update"
 end
 
@@ -8,10 +8,6 @@ end
 
 package "aptitude" do
 	action :install
-end
-
-execute "update apt" do
-  command "apt-get upgrade -y"
 end
 
 package "git-core" do
