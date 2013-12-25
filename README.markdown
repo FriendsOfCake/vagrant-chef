@@ -4,6 +4,15 @@ Real live hobos for use with CakePHP
 
 ![reasons](http://f.cl.ly/items/2M0b360C1S2b1V2u0U3w/tumblr_lubo5uAxHm1qhplz8o2_250.jpeg)
 
+It creates a Vagrant installation with the following features:
+
+- Ubuntu 12.04 Precise Pangolin
+- Ningx 1.1
+- PHP 5.5
+- Percona MySQL 5.5
+- Redis 2.8
+- Memcached 1.4
+
 ## Requirements
 
 - OS X or Linux. Windows should also be supported, but untested!
