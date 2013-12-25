@@ -1,0 +1,13 @@
+server {
+	listen 80;
+	server_name app.dev;
+	root /vagrant/app;
+	access_log /var/log/nginx/app.dev-access.log;
+	include common.conf;
+	include cakephp.conf;
+}
+server {
+	listen 80;
+	server_name www.app.dev;
+	rewrite ^ http://app.dev$uri permanent;
+}

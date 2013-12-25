@@ -48,8 +48,7 @@ Once it is done, browse to `http://192.168.13.37/` in your browser, and you shou
 
 If you want to access the site using a custom domain name, edit your `/etc/hosts` file to have the following line:
 
-    192.168.13.37 www.cakephpsite.com cakephpsite.com
-    192.168.13.37 www.phpsite.com phpsite.com
+    192.168.13.37 www.app.dev app.dev
 
 ## Starting/Stopping Work
 

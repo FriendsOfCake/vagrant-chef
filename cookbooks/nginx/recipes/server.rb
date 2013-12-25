@@ -48,15 +48,7 @@ template "/etc/nginx/nginx.conf" do
 end
 
 template "/etc/nginx/sites-available/default" do
-  source "default.erb"
-  owner "root"
-  group "root"
-  mode 0644
-  notifies :restart, "service[nginx]", :immediately
-end
-
-template "/etc/nginx/sites-available/cakephp.example" do
-  source "cakephp.example.erb"
+  source "app.dev.erb"
   owner "root"
   group "root"
   mode 0644
