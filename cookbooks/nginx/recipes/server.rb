@@ -6,12 +6,29 @@ directory '/vagrant/app' do
   action :create
 end
 
-template "/vagrant/app/index.php" do
+directory '/vagrant/app/app' do
+  owner "vagrant"
+  group "vagrant"
+  mode  0755
+  recursive true
+  action :create
+end
+
+directory '/vagrant/app/app/webroot' do
+  owner "vagrant"
+  group "vagrant"
+  mode  0755
+  recursive true
+  action :create
+end
+
+
+template "/vagrant/app/app/webroot/index.php" do
   source "index.php.erb"
   owner "vagrant"
   group "vagrant"
   mode 0644
-  not_if { ::FileTest.exists?("/vagrant/app/index.php") }
+  not_if { ::FileTest.exists?("/vagrant/app/app/webroot/index.php") }
 end
 
 package "nginx"  do
