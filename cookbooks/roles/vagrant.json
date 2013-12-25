@@ -26,6 +26,7 @@
     "recipe[hostname::default]",
     "recipe[percona::client]",
     "recipe[percona::server]",
+    "recipe[redis::install]",
     "recipe[nginx::server]",
     "recipe[php::install]",
     "recipe[cakephp::setup]"
