@@ -23,8 +23,8 @@ service "mysql" do
 end
 
 execute 'set-mysql-root' do
-    command "mysqladmin -u root password #{node['mysql']['server_root_password']}"
-    only_if "/usr/bin/mysql -u root -e 'show databases;'"
+  command "mysqladmin -u root password #{node['mysql']['server_root_password']}"
+  only_if "/usr/bin/mysql -u root -e 'show databases;'"
 end
 
 template "/etc/mysql/my.cnf" do
