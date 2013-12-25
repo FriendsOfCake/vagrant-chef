@@ -13,7 +13,6 @@ Cake-Vagrant creates a Vagrant installation using Chef with the following featur
 
 ## Requirements
 
-- OS X or Linux. Windows should also be supported, but untested!
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Tested on 4.3.x, but 4.2.x should also work.
 - [Vagrant](http://www.vagrantup.com/downloads.html). Tested on 1.4.1
 - Patience, and about an hour or so of your time
@@ -111,12 +110,7 @@ File a github issue.
 
 ## Todo
 
-- Automate hostnames
-- Give directions for non-mac users
-- Test on Windows
 - Add phpmyadmin to setup
-- Fix the installed cake versions
-- Add instructions for developing
 
 ## MIT
 
