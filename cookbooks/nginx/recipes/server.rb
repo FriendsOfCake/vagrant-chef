@@ -52,5 +52,8 @@ template "/etc/nginx/sites-available/default" do
   owner "root"
   group "root"
   mode 0644
+  variables(
+    :server_name => node['nginx']['server_name']
+  )
   notifies :restart, "service[nginx]", :immediately
 end

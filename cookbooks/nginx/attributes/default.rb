@@ -14,3 +14,5 @@ default[:nginx][:gzip_types] = [
   "image/gif",
   "image/jpeg"
 ]
+
+default[:nginx][:server_name] = 'app.dev'
