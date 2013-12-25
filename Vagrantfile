@@ -7,15 +7,34 @@ if ! grep -q cd-to-directory "/home/vagrant/.bashrc"; then
   echo "- setting up auto chdir on ssh"
   echo "\n[ -n \\"\\$SSH_CONNECTION\\" ] && cd /vagrant # cd-to-directory" >> "/home/vagrant/.bashrc"
 fi
+
+cat > /home/vagrant/.ssh/config <<'EOF'
+Host *
+  CheckHostIP yes
+  ControlMaster auto
+  ControlPath ~/.ssh/master-%r@%h:%p
+  SendEnv LANG LC_*
+  HashKnownHosts yes
+  GSSAPIAuthentication no
+  GSSAPIDelegateCredentials no
+  RSAAuthentication yes
+  PasswordAuthentication yes
+  StrictHostKeyChecking no
+EOF
+
+cat > /root/.gemrc << 'EOF'
+gem: --no-ri --no-rdoc
+EOF
+
 SCRIPT
 
 Vagrant::Config.run do |config|
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
-  # Use this IP so that we can share folders
-  # You can use this IP to access the instance
   config.vm.network :hostonly, "192.168.13.37"
+
+  config.ssh.forward_agent = true
 
   config.vm.provision :shell, inline: $script
 
