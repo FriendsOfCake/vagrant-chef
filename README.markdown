@@ -1,10 +1,6 @@
 # Cake Vagrant
 
-Real live hobos for use with CakePHP
-
-![reasons](http://f.cl.ly/items/2M0b360C1S2b1V2u0U3w/tumblr_lubo5uAxHm1qhplz8o2_250.jpeg)
-
-It creates a Vagrant installation with the following features:
+Cake-Vagrant creates a Vagrant installation using Chef with the following features:
 
 - Ubuntu 12.04 Precise Pangolin
 - Ningx 1.1
