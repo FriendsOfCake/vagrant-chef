@@ -1,15 +1,15 @@
 include_recipe "percona::default"
 
+package "percona-server-server-5.5" do
+  action :install
+end
+
 directory '/var/lib/mysql/binlogs' do
-  owner "root"
-  group "root"
+  owner "mysql"
+  group "mysql"
   mode  0755
   recursive true
   action :create
-end
-
-package "percona-server-server-5.5" do
-  action :install
 end
 
 package "xtrabackup" do
