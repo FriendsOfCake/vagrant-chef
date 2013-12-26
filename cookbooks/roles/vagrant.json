@@ -6,10 +6,6 @@
   "override_attributes": {
     "box_name": "vagrant",
     "mysql": {
-      "bind_address": false,
-      "tmpdir": "/tmp",
-      "server_id": 1,
-      "innodb_log_file_size": false,
       "root_password": "bananas"
     },
     "authorization": {

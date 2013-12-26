@@ -3,24 +3,18 @@
 default['mysql']['server_debian_password']  = secure_password
 default['mysql']['server_root_password']    = secure_password
 default['mysql']['server_repl_password']    = secure_password
-default['mysql']['bind_address']            = ipaddress
+default['mysql']['bind_address']            = false
 default['mysql']['datadir']                 = "/var/lib/mysql"
-
-if attribute?(:ec2)
-  default['mysql']['ec2_path']    = "/mnt/mysql"
-  default['mysql']['ebs_vol_dev'] = "/dev/sdi"
-  default['mysql']['ebs_vol_size'] = 50
-end
 
 default['mysql']['key_buffer_size']         = "1G"
 default['mysql']['max_connections']         = "450"
-default['mysql']['tmpdir']                  = "/mnt/mysqltmp"
+default['mysql']['tmpdir']                  = "/tmp"
 default['mysql']['query_cache_limit']       = "20M"
 default['mysql']['query_cache_size']        = "512M"
-default['mysql']['server_id']               = 10
+default['mysql']['server_id']               = 1
 default['mysql']['innodb_buffer_pool_size'] = "512M"
 default['mysql']['innodb_log_buffer_size']  = "8M"
-default['mysql']['innodb_log_file_size']    = "256M"
+default['mysql']['innodb_log_file_size']    = false
 
 # Unused
 default['mysql']['wait_timeout']        = "3600"
