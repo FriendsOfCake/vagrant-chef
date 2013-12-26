@@ -26,6 +26,13 @@ execute 'set-mysql-root' do
   only_if "/usr/bin/mysql -u root -e 'show databases;'"
 end
 
+node['mysql']['users'].each do |user, password|
+  execute "create-mysql-user-#{user}" do
+    command "mysql -uroot -p#{node['mysql']['server_root_password']} -e \"CREATE USER '#{user}'@'localhost' IDENTIFIED BY '#{password}'; GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;\" && touch /etc/mysql/user-#{user}"
+    creates "/etc/mysql/user-#{user}"
+  end
+end
+
 template "/etc/mysql/my.cnf" do
   source "my.cnf.erb"
   variables :mysql => node['mysql']

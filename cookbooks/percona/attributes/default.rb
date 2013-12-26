@@ -16,6 +16,8 @@ default['mysql']['innodb_buffer_pool_size'] = "512M"
 default['mysql']['innodb_log_buffer_size']  = "8M"
 default['mysql']['innodb_log_file_size']    = false
 
+default['mysql']['users']                   = {}
+
 # Unused
 default['mysql']['wait_timeout']        = "3600"
 default['mysql']['net_read_timeout']    = "30"
