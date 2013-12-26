@@ -12,7 +12,7 @@ if attribute?(:ec2)
   default['mysql']['ebs_vol_size'] = 50
 end
 
-default['mysql']['key_buffer']              = "1G"
+default['mysql']['key_buffer_size']         = "1G"
 default['mysql']['max_connections']         = "450"
 default['mysql']['tmpdir']                  = "/mnt/mysqltmp"
 default['mysql']['query_cache_limit']       = "20M"
