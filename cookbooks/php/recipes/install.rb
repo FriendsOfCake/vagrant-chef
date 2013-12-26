@@ -27,6 +27,7 @@ end
   "php5-mcrypt",
   "php5-memcached",
   "php5-mysql",
+  "php5-xdebug",
   "php-apc",
   "php-pear",
 ].each do |pkg|
