@@ -6,7 +6,7 @@
   "override_attributes": {
     "box_name": "vagrant",
     "mysql": {
-      "root_password": "bananas"
+      "server_root_password": "bananas"
     },
     "authorization": {
       "sudo": { "users": [ "deploy", "vagrant" ] }
