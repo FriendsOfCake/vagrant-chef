@@ -1,6 +1,6 @@
-# Cake Vagrant
+# Vagrant Chef for CakePHP
 
-Cake-Vagrant creates a Vagrant installation using Chef with the following features:
+Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the following features:
 
 - Ubuntu 12.04 Precise Pangolin
 - Ningx 1.1
@@ -26,11 +26,11 @@ Once those are downloaded, open up a terminal. We'll need to clone this reposito
 
     cd ~/Sites
     git clone git@github.com:FriendsOfCake/vagrant-chef.git
-    cd cake-vagrant
+    cd vagrant-chef
 
 Now we need to setup the vagrant installation. This is pretty easy:
 
-    cd ~/Sites/cake-vagrant
+    cd ~/Sites/vagrant-chef
     vagrant up
 
 It may take a bit to download the Vagrant box, but once that is done, you will be prompted for your laptop password. This is so we can properly expose the IP of the vagrant instance to your machine. Type in your password and let it continue running.
@@ -49,7 +49,7 @@ If you want to access the site using a custom domain name, edit your `/etc/hosts
 
 #### Developing your application
 
-When you want to use vagrant instance for a development environment, you can replace the `app` directory with the contents of your application. This would be an example of your directory structure:
+When you want to use vagrant instance for a development environment, you can replace the `app` directory with the contents of your application. Within the vm, this would be an example of your directory structure:
 
     |-/vagrant/app
     |-/vagrant/app/app
@@ -75,12 +75,12 @@ Note, we recommend using the [FriendsOfCake/app-template](https://github.com/Fri
 
 You normally wont want to have the instance running full time. To pause it, simply perform the following in the command line:
 
-    cd ~/Sites/cake-vagrant
+    cd ~/Sites/vagrant-chef
     vagrant suspend
 
 You will no longer be able to access the instance after doing this. To continue working, issue the following commands:
 
-    cd ~/Sites/cake-vagrant
+    cd ~/Sites/vagrant-chef
     vagrant resume
 
 ## Updating Vagrant
@@ -89,7 +89,7 @@ Running `vagrant provision` will reprovision the instance. You won't normally ne
 
 If there are any updates to the vagrant setup, such as a new feature, new site hosted within, or new service, simply do the following in a terminal:
 
-    cd ~/Sites/cake-vagrant
+    cd ~/Sites/vagrant-chef
     git pull origin master
     vagrant provision
 
@@ -97,10 +97,10 @@ If there are any updates to the vagrant setup, such as a new feature, new site h
 
 We're sad to see you leave your work behind, but getting a fressh start isn't hard. Simply do the following:
 
-    cd ~/Sites/cake-vagrant
+    cd ~/Sites/vagrant-chef
     vagrant destroy
     cd ..
-    rm -rf cake-vagrant
+    rm -rf vagrant-chef
 
 This will destroy your vagrant installation and remove all traces of it from your laptop.
 
