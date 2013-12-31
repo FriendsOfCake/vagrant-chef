@@ -22,6 +22,8 @@
     "recipe[hostname::default]",
     "recipe[percona::client]",
     "recipe[percona::server]",
+    "recipe[postgresql::client]",
+    "recipe[postgresql::server]",
     "recipe[redis::install]",
     "recipe[memcached::install]",
     "recipe[nginx::server]",
