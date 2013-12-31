@@ -13,7 +13,7 @@ template "/etc/apt/sources.list.d/percona.list" do
   owner "root"
   group "root"
   mode 0644
-  notifies :run, "execute[apt-get update]", :immediately
+  notifies :run, "execute[apt-get update]"
 end
 
 apt_preference "percona" do
@@ -26,8 +26,4 @@ apt_preference "ubuntu" do
   glob "*"
   pin "origin archive.ubuntu.com"
   pin_priority "600"
-end
-
-package "percona-server-common-5.5" do
-  action :install
 end

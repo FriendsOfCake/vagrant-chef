@@ -20,10 +20,8 @@
   "run_list": [
     "recipe[system::update]",
     "recipe[hostname::default]",
-    "recipe[percona::client]",
-    "recipe[percona::server]",
-    "recipe[postgresql::client]",
-    "recipe[postgresql::server]",
+    "recipe[percona::install]",
+    "recipe[postgresql::install]",
     "recipe[redis::install]",
     "recipe[memcached::install]",
     "recipe[nginx::server]",
