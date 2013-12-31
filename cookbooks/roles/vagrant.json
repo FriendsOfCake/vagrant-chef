@@ -11,9 +11,6 @@
         "user": "password"
       }
     },
-    "authorization": {
-      "sudo": { "users": [ "deploy", "vagrant" ] }
-    },
     "nginx": {
       "worker_connections": 768,
       "keepalive_timeout": 2
