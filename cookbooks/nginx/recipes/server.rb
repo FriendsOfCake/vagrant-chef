@@ -48,7 +48,7 @@ template "/etc/nginx/common.conf" do
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, "service[nginx]", :immediately
+  notifies :restart, "service[nginx]"
 end
 
 template "/etc/nginx/fastcgi_params" do
@@ -56,7 +56,7 @@ template "/etc/nginx/fastcgi_params" do
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, "service[nginx]", :immediately
+  notifies :restart, "service[nginx]"
 end
 
 template "/etc/nginx/php.conf" do
@@ -64,7 +64,7 @@ template "/etc/nginx/php.conf" do
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, "service[nginx]", :immediately
+  notifies :restart, "service[nginx]"
 end
 
 template "/etc/nginx/cakephp.conf" do
@@ -72,7 +72,7 @@ template "/etc/nginx/cakephp.conf" do
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, "service[nginx]", :immediately
+  notifies :restart, "service[nginx]"
 end
 
 template "/etc/nginx/nginx.conf" do
@@ -80,7 +80,7 @@ template "/etc/nginx/nginx.conf" do
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, "service[nginx]", :immediately
+  notifies :restart, "service[nginx]"
 end
 
 template "/etc/nginx/sites-available/default" do
@@ -91,5 +91,5 @@ template "/etc/nginx/sites-available/default" do
   variables(
     :server_name => node['nginx']['server_name']
   )
-  notifies :restart, "service[nginx]", :immediately
+  notifies :restart, "service[nginx]"
 end
