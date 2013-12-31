@@ -10,6 +10,9 @@ end
 
 template "/etc/apt/sources.list.d/chris-lea.list" do
   source "chris-lea.list.erb"
+  owner "root"
+  group "root"
+  mode 0644
   notifies :run, "execute[apt-get update]", :immediately
 end
 

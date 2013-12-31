@@ -10,6 +10,9 @@ end
 
 template "/etc/apt/sources.list.d/php55.list" do
   source "php55.list.erb"
+  owner "root"
+  group "root"
+  mode 0644
   notifies :run, "execute[apt-get update]", :immediately
 end
 

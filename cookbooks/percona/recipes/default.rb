@@ -10,6 +10,9 @@ end
 
 template "/etc/apt/sources.list.d/percona.list" do
   source "percona.list.erb"
+  owner "root"
+  group "root"
+  mode 0644
   notifies :run, "execute[apt-get update]", :immediately
 end
 
