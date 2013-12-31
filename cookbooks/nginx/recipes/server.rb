@@ -4,6 +4,7 @@ directory '/vagrant/app' do
   mode  0755
   recursive true
   action :create
+  not_if { ::FileTest.exists?("/vagrant/app/app/webroot/index.php") }
 end
 
 directory '/vagrant/app/app' do
@@ -12,6 +13,7 @@ directory '/vagrant/app/app' do
   mode  0755
   recursive true
   action :create
+  not_if { ::FileTest.exists?("/vagrant/app/app/webroot/index.php") }
 end
 
 directory '/vagrant/app/app/webroot' do
@@ -20,6 +22,7 @@ directory '/vagrant/app/app/webroot' do
   mode  0755
   recursive true
   action :create
+  not_if { ::FileTest.exists?("/vagrant/app/app/webroot/index.php") }
 end
 
 
