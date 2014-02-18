@@ -14,17 +14,21 @@ execute "apt-get update" do
 end
 
 package "curl" do
-	action :install
+  action :install
 end
 
 package "aptitude" do
-	action :install
+  action :install
 end
 
 package "git-core" do
-	action :install
+  action :install
 end
 
 package "subversion" do
-	action :install
+  action :install
+end
+
+package "vim" do
+  action :install
 end
