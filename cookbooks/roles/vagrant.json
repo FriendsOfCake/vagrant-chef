@@ -25,6 +25,7 @@
     "recipe[redis::install]",
     "recipe[memcached::install]",
     "recipe[nginx::server]",
+    "recipe[ruby::install]",
     "recipe[php::install]",
     "recipe[cakephp::setup]"
   ]

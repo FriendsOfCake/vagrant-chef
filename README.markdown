@@ -5,12 +5,14 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 - Ubuntu 12.04 Precise Pangolin
 - Ningx 1.1
 - PHP 5.5
+- Ruby 1.9.3
 - Percona MySQL 5.5
 - Postgres 9.1
 - Redis 2.8
 - Memcached 1.4
 - Git 1.7
 - Composer
+- The ruby gems `heroku`, `hub`, `travis` and `travis-lint`
 
 ## Requirements
 
