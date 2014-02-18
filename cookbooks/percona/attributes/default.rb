@@ -3,7 +3,7 @@
 default['mysql']['server_debian_password']  = 'password'
 default['mysql']['server_root_password']    = 'password'
 default['mysql']['server_repl_password']    = 'password'
-default['mysql']['bind_address']            = false
+default['mysql']['bind_address']            = '0.0.0.0'
 default['mysql']['datadir']                 = "/var/lib/mysql"
 
 default['mysql']['key_buffer_size']         = "1G"

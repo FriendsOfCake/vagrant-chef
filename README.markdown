@@ -48,6 +48,13 @@ If you want to access the site using a custom domain name, edit your `/etc/hosts
 
     192.168.13.37 www.app.dev app.dev
 
+#### Database Access
+
+MySQL is available at `0.0.0.0:3306` with either of the following credentials:
+
+- `root:bananas`
+- `user:password`
+
 #### Developing your application
 
 When you want to use vagrant instance for a development environment, you can replace the `app` directory with the contents of your application. Within the vm, this would be an example of your directory structure:
