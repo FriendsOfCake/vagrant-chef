@@ -39,14 +39,14 @@ end
 
 remote_file node['php']['composer']['bin'] do
   source node['php']['composer']['url']
-  mode "0777"
+  mode "0755"
   action :create
   not_if { ::File.exists?(node['php']['composer']['bin']) }
 end
 
 remote_file node['php']['phpunit']['bin'] do
   source node['php']['phpunit']['url']
-  mode "0777"
+  mode "0755"
   action :create
   not_if { ::File.exists?(node['php']['phpunit']['bin']) }
 end
