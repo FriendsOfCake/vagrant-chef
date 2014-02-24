@@ -6,6 +6,10 @@
   "override_attributes": {
     "box_name": "vagrant",
     "mysql": {
+      "databases": {
+        "database_name": true,
+        "test_database_name": true
+      },
       "server_root_password": "bananas",
       "users": {
         "user": "password"

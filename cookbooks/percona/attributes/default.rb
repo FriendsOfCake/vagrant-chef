@@ -18,6 +18,8 @@ default['mysql']['innodb_log_file_size']    = false
 
 default['mysql']['users']                   = {}
 
+default['mysql']['databases']               = {}
+
 # Unused
 default['mysql']['wait_timeout']        = "3600"
 default['mysql']['net_read_timeout']    = "30"
