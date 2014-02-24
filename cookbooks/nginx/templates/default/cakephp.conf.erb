@@ -3,5 +3,5 @@ include php.conf;
 location / {
 	try_files $uri $uri/ /index.php?$uri&$args;
 	expires max;
-	access_log off;
+	access_log on;
 }
