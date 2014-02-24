@@ -6,6 +6,14 @@ directory "/var/virtual" do
   action :create
 end
 
+directory "/var/log/app" do
+  owner "www-data"
+  group "www-data"
+  mode  0755
+  recursive true
+  action :create
+end
+
 node['cakephp']['versions'].each do | version, should_install |
   git "/var/virtual/cakephp-#{version}" do
     repository 'git://github.com/cakephp/cakephp.git'
