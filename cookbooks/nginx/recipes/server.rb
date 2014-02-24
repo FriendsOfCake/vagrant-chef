@@ -4,34 +4,34 @@ directory '/vagrant/app' do
   mode  0755
   recursive true
   action :create
-  not_if { ::FileTest.exists?("/vagrant/app/app/webroot/index.php") }
+  not_if { ::FileTest.exists?("/vagrant/app/webroot/index.php") }
 end
 
-directory '/vagrant/app/app' do
+directory '/vagrant/app' do
   owner "vagrant"
   group "vagrant"
   mode  0755
   recursive true
   action :create
-  not_if { ::FileTest.exists?("/vagrant/app/app/webroot/index.php") }
+  not_if { ::FileTest.exists?("/vagrant/app/webroot/index.php") }
 end
 
-directory '/vagrant/app/app/webroot' do
+directory '/vagrant/app/webroot' do
   owner "vagrant"
   group "vagrant"
   mode  0755
   recursive true
   action :create
-  not_if { ::FileTest.exists?("/vagrant/app/app/webroot/index.php") }
+  not_if { ::FileTest.exists?("/vagrant/app/webroot/index.php") }
 end
 
 
-template "/vagrant/app/app/webroot/index.php" do
+template "/vagrant/app/webroot/index.php" do
   source "index.php.erb"
   owner "vagrant"
   group "vagrant"
   mode 0644
-  not_if { ::FileTest.exists?("/vagrant/app/app/webroot/index.php") }
+  not_if { ::FileTest.exists?("/vagrant/app/webroot/index.php") }
 end
 
 package "nginx"  do

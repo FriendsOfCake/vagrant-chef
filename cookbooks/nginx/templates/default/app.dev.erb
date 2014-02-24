@@ -1,11 +1,13 @@
 server {
 	listen 80;
 	server_name <%= @server_name %>;
-	root /vagrant/app/app/webroot;
+	root /vagrant/app/webroot;
 	access_log /var/log/nginx/<%= @server_name %>-access.log;
+
 	include common.conf;
 	include cakephp.conf;
 }
+
 server {
 	listen 80;
 	server_name www.<%= @server_name %>;
