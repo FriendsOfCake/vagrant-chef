@@ -28,7 +28,7 @@ Download and install both VirtualBox and Vagrant for your particular operating s
 Once those are downloaded, open up a terminal. We'll need to clone this repository and setup vagrant:
 
     cd ~/Sites
-    git clone git@github.com:FriendsOfCake/vagrant-chef.git
+    git clone https://github.com/FriendsOfCake/vagrant-chef.git
     cd vagrant-chef
 
 Now we need to setup the vagrant installation. This is pretty easy:
