@@ -29,7 +29,7 @@ service "php5-fpm" do
   action :nothing
 end
 
-template "/etc/php5/fpm/pool.d/www.conf.erb" do
+template "/etc/php5/fpm/pool.d/www.conf" do
   source "www.conf.erb"
   owner "root"
   group "root"
