@@ -1,4 +1,4 @@
-["ruby1.9.1-full", "build-essential", "wget", "ssl-cert", "curl"].each do |pkg|
+["wget", "ssl-cert", "curl"].each do |pkg|
   package pkg do
     action :install
   end
