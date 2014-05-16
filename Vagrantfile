@@ -26,6 +26,15 @@ cat > /root/.gemrc << 'EOF'
 gem: --no-ri --no-rdoc
 EOF
 
+echo "- updating deb repository"
+apt-get update > /dev/null
+
+echo "- installing build requirements"
+export DEBIAN_FRONTEND=noninteractive
+apt-get install -qq -y --force-yes build-essential git-core curl unzip libssl-dev libxslt-dev libxml2-dev libreadline-dev zlib1g-dev
+apt-get install -qq -y --force-yes binutils-doc gcc autoconf flex bison libtool
+apt-get install -qq -y --force-yes ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 irb1.9.1 ri1.9.1 rdoc1.9.1 libopenssl-ruby1.9.1
+
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
