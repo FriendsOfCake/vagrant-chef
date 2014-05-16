@@ -13,7 +13,7 @@ template "/etc/apt/sources.list.d/percona.list" do
   owner "root"
   group "root"
   mode 0644
-  notifies :run, "execute[apt-get update]"
+  notifies :run, "execute[apt-get update]", :immediately
 end
 
 apt_preference "percona" do

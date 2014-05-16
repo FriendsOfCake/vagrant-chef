@@ -13,5 +13,5 @@ template "/etc/apt/sources.list.d/php55.list" do
   owner "root"
   group "root"
   mode 0644
-  notifies :run, "execute[apt-get update]"
+  notifies :run, "execute[apt-get update]", :immediately
 end
