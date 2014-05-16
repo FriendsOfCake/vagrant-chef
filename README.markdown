@@ -27,14 +27,18 @@ Download and install both VirtualBox and Vagrant for your particular operating s
 
 Once those are downloaded, open up a terminal. We'll need to clone this repository and setup vagrant:
 
-    cd ~/Sites
-    git clone https://github.com/FriendsOfCake/vagrant-chef.git
-    cd vagrant-chef
+```bash
+cd ~/Sites
+git clone https://github.com/FriendsOfCake/vagrant-chef.git
+cd vagrant-chef
+```
 
 Now we need to setup the vagrant installation. This is pretty easy:
 
-    cd ~/Sites/vagrant-chef
-    vagrant up
+```bash
+cd ~/Sites/vagrant-chef
+vagrant up
+```
 
 It may take a bit to download the Vagrant box, but once that is done, you will be prompted for your laptop password. This is so we can properly expose the IP of the vagrant instance to your machine. Type in your password and let it continue running.
 
@@ -49,6 +53,12 @@ Once it is done, browse to `http://192.168.13.37/` in your browser, and you shou
 If you want to access the site using a custom domain name, edit your `/etc/hosts` file to have the following line:
 
     192.168.13.37 www.app.dev app.dev
+
+If you are the root user on your box, you can do something like:
+
+```bash
+echo "192.168.13.37 www.app.dev app.dev" >> "/etc/hosts"
+```
 
 #### Database Access
 
@@ -85,13 +95,17 @@ Note, we recommend using the [FriendsOfCake/app-template](https://github.com/Fri
 
 You normally wont want to have the instance running full time. To pause it, simply perform the following in the command line:
 
-    cd ~/Sites/vagrant-chef
-    vagrant suspend
+```bash
+cd ~/Sites/vagrant-chef
+vagrant suspend
+```
 
 You will no longer be able to access the instance after doing this. To continue working, issue the following commands:
 
-    cd ~/Sites/vagrant-chef
-    vagrant resume
+```bash
+cd ~/Sites/vagrant-chef
+vagrant resume
+```
 
 ## Updating Vagrant
 
@@ -99,18 +113,22 @@ Running `vagrant provision` will reprovision the instance. You won't normally ne
 
 If there are any updates to the vagrant setup, such as a new feature, new site hosted within, or new service, simply do the following in a terminal:
 
-    cd ~/Sites/vagrant-chef
-    git pull origin master
-    vagrant provision
+```bash
+cd ~/Sites/vagrant-chef
+git pull origin master
+vagrant provision
+```
 
 ## Starting fresh
 
 We're sad to see you leave your work behind, but getting a fressh start isn't hard. Simply do the following:
 
-    cd ~/Sites/vagrant-chef
-    vagrant destroy
-    cd ..
-    rm -rf vagrant-chef
+```bash
+cd ~/Sites/vagrant-chef
+vagrant destroy
+cd ..
+rm -rf vagrant-chef
+```
 
 This will destroy your vagrant installation and remove all traces of it from your laptop.
 
