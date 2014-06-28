@@ -2,6 +2,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
+
 $script = <<-SCRIPT
 if ! grep -q cd-to-directory "/home/vagrant/.bashrc"; then
   echo "- setting up auto chdir on ssh"
