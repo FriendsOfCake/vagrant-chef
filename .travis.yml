@@ -1,0 +1,4 @@
+language: ruby
+rvm:
+  - 1.9.3
+script: bunxle exec foodcritic --epic-fail any cookbooks
