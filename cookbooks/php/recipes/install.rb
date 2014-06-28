@@ -34,7 +34,7 @@ template "/etc/php5/fpm/pool.d/www.conf" do
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, resources(:service => "php5-fpm"), :immediately
+  notifies :restart, "service[php5-fpm]", :immediately
 end
 
 remote_file node['php']['composer']['bin'] do

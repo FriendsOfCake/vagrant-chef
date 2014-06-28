@@ -1,7 +1,7 @@
-default[:nginx][:worker_processes]   = cpu[:total]
-default[:nginx][:worker_connections] = 2048
-default[:nginx][:keepalive_timeout]  = 65
-default[:nginx][:gzip_types] = [
+default['nginx']['worker_processes']   = cpu[:total]
+default['nginx']['worker_connections'] = 2048
+default['nginx']['keepalive_timeout']  = 65
+default['nginx']['gzip_types'] = [
   "text/plain",
   "text/css",
   "application/x-javascript",
@@ -15,4 +15,4 @@ default[:nginx][:gzip_types] = [
   "image/jpeg"
 ]
 
-default[:nginx][:server_name] = 'app.dev'
+default['nginx']['server_name'] = 'app.dev'

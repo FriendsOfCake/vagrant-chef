@@ -13,22 +13,14 @@ execute "apt-get update" do
   command "apt-get update && touch /var/chef/apt_get_updated"
 end
 
-package "curl" do
-  action :install
-end
-
-package "aptitude" do
-  action :install
-end
-
-package "git-core" do
-  action :install
-end
-
-package "subversion" do
-  action :install
-end
-
-package "vim" do
-  action :install
+[
+  'curl',
+  'aptitude',
+  'git-core',
+  'subversion',
+  'vim',
+].each do |pkg|
+  package pkg do
+    action :install
+  end
 end
