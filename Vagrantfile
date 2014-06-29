@@ -55,4 +55,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.roles_path = "cookbooks/roles"
     chef.add_role("vagrant")
   end
+
+  config.vm.provider :vmware_fusion do |v, override|
+    override.vm.box = "precise64_vmware_fusion"
+    override.vm.box_url = "http://files.vagrantup.com/precise64_vmware_fusion.box"
+  end
 end
