@@ -24,6 +24,7 @@
   "run_list": [
     "recipe[system::update]",
     "recipe[hostname::default]",
+    "recipe[git::install]",
     "recipe[percona::install]",
     "recipe[postgresql::install]",
     "recipe[redis::install]",
