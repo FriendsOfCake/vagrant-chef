@@ -27,7 +27,6 @@ directory '/vagrant/app/webroot' do
   not_if { ::FileTest.exists?("/vagrant/app/webroot/index.php") }
 end
 
-
 template "/vagrant/app/webroot/index.php" do
   source "index.php.erb"
   owner "vagrant"
