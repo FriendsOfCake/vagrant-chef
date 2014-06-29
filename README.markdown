@@ -70,7 +70,7 @@ MySQL is available at `0.0.0.0:3306` with either of the following credentials:
 
 #### Developing your application
 
-When you want to use vagrant instance for a development environment, you can replace the `app` directory with the contents of your application. Within the vm, this would be an example of your directory structure:
+When you want to use vagrant instance for a development environment, you can create an `app` directory with the contents of your application. Within the vm, this would be an example of your directory structure:
 
     |-/vagrant/app
     |-/vagrant/app/app
@@ -117,12 +117,12 @@ If there are any updates to the vagrant setup, such as a new feature, new site h
 ```bash
 cd ~/Sites/vagrant-chef
 git pull origin master
-vagrant provision
+vagrant reload --provision
 ```
 
 ## Starting fresh
 
-We're sad to see you leave your work behind, but getting a fressh start isn't hard. Simply do the following:
+We're sad to see you leave your work behind, but getting a fresh start isn't hard. Simply do the following:
 
 ```bash
 cd ~/Sites/vagrant-chef

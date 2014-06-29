@@ -1,40 +1,5 @@
 include_recipe "nginx::apt_repository"
 
-directory '/vagrant/app' do
-  owner "vagrant"
-  group "vagrant"
-  mode  0755
-  recursive true
-  action :create
-  not_if { ::FileTest.exists?("/vagrant/app/webroot/index.php") }
-end
-
-directory '/vagrant/app' do
-  owner "vagrant"
-  group "vagrant"
-  mode  0755
-  recursive true
-  action :create
-  not_if { ::FileTest.exists?("/vagrant/app/webroot/index.php") }
-end
-
-directory '/vagrant/app/webroot' do
-  owner "vagrant"
-  group "vagrant"
-  mode  0755
-  recursive true
-  action :create
-  not_if { ::FileTest.exists?("/vagrant/app/webroot/index.php") }
-end
-
-template "/vagrant/app/webroot/index.php" do
-  source "index.php.erb"
-  owner "vagrant"
-  group "vagrant"
-  mode 0644
-  not_if { ::FileTest.exists?("/vagrant/app/webroot/index.php") }
-end
-
 package "nginx"  do
   action :install
 end
@@ -44,32 +9,23 @@ service "nginx"  do
   action :nothing
 end
 
-template "/etc/nginx/common.conf" do
-  source "common.conf.erb"
-  owner "root"
-  group "root"
+directory '/etc/nginx/app' do
+  owner "www-data"
+  group "www-data"
+  mode  0755
+  recursive true
+  action :create
+end
+
+template "/etc/nginx/app/index.html" do
+  source "index.html.erb"
+  owner "www-data"
+  group "www-data"
   mode 0644
-  notifies :restart, "service[nginx]"
 end
 
 template "/etc/nginx/fastcgi_params" do
   source "fastcgi_params.erb"
-  owner "root"
-  group "root"
-  mode 0644
-  notifies :restart, "service[nginx]"
-end
-
-template "/etc/nginx/php.conf" do
-  source "php.conf.erb"
-  owner "root"
-  group "root"
-  mode 0644
-  notifies :restart, "service[nginx]"
-end
-
-template "/etc/nginx/cakephp.conf" do
-  source "cakephp.conf.erb"
   owner "root"
   group "root"
   mode 0644

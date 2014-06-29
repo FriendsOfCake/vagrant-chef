@@ -4,8 +4,27 @@ server {
 	root /vagrant/app/webroot;
 	access_log /var/log/nginx/<%= @server_name %>-access.log;
 
-	include common.conf;
-	include cakephp.conf;
+	index index.php index.html;
+
+	location ~ /\.ht {
+		deny all;
+	}
+
+	location ~ \.php$ {
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		include fastcgi_params;
+	}
+
+	location / {
+		try_files $uri $uri/ /index.php?$uri&$args @fallback;
+		expires max;
+		access_log on;
+	}
+
+	location @fallback {
+		root /etc/nginx/app;
+		index index.html;
+	}
 }
 
 server {
