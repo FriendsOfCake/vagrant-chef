@@ -4,7 +4,7 @@
 Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the following features:
 
 - Ubuntu 12.04 Precise Pangolin
-- Ningx 1.1
+- Ningx 1.6
 - PHP 5.5
 - Ruby 1.9.3
 - Percona MySQL 5.5

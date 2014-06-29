@@ -1,3 +1,5 @@
+include_recipe "nginx::apt_repository"
+
 directory '/vagrant/app' do
   owner "vagrant"
   group "vagrant"
