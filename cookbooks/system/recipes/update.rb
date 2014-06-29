@@ -13,7 +13,6 @@ end
 [
   'curl',
   'aptitude',
-  'git-core',
   'subversion',
   'vim',
 ].each do |pkg|
