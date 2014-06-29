@@ -1,6 +1,3 @@
-include_recipe "redis::apt_repository"
-include_recipe "percona::apt_repository"
-include_recipe "php::apt_repository"
 
 execute "trigger apt-get update" do
   command "true"
