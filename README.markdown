@@ -26,18 +26,17 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 
 Download and install both VirtualBox and Vagrant for your particular operating system. Should only take a few minutes on a DSL connection
 
-Once those are downloaded, open up a terminal. We'll need to clone this repository and setup vagrant:
+Once those are installed, open up a terminal in your project folder. If you want to start from scratch, create a folder and `cd` into it.
+
+Then run this command in your project root to add `vagrant-chef`'s files into your project:
 
 ```bash
-cd ~/Sites
-git clone https://github.com/FriendsOfCake/vagrant-chef.git
-cd vagrant-chef
+wget https://github.com/FriendsOfCake/vagrant-chef/archive/master.tar.gz -O - | tar -xz --strip-components 1
 ```
 
-Now we need to setup the vagrant installation. This is pretty easy:
+To set up and run a virtual machine, simply run:
 
 ```bash
-cd ~/Sites/vagrant-chef
 vagrant up
 ```
 
@@ -70,23 +69,29 @@ MySQL is available at `0.0.0.0:3306` with either of the following credentials:
 
 #### Developing your application
 
-When you want to use vagrant instance for a development environment, you can create an `app` directory with the contents of your application. Within the vm, this would be an example of your directory structure:
+Your project's root folder will appear in the virtual machine under `/vagrant`.
 
-    |-/vagrant/app
-    |-/vagrant/app/app
-    | |-/vagrant/app/app/Config
-    | |-/vagrant/app/app/Console
-    | |-/vagrant/app/app/Controller
-    | |-/vagrant/app/app/Lib
-    | |-/vagrant/app/app/Model
-    | |-/vagrant/app/app/Plugin
-    | |-/vagrant/app/app/tmp
-    | |-/vagrant/app/app/vendor
-    | |-/vagrant/app/app/View
-    | |-/vagrant/app/app/webroot
-    |-/vagrant/app/lib
-    |-/vagrant/app/Plugin
-    |-/vagrant/app/vendor
+We suggest that you store your app's code under the `app` directory in your project's root.
+
+    project-root/
+    └ vagrant/
+      └ app/
+        ├ app/
+        │ ├ Config
+        │ ├ Console
+        │ ├ Controller
+        │ ├ Lib
+        │ ├ Model
+        │ ├ Plugin
+        │ ├ tmp
+        │ ├ vendor
+        │ ├ View
+        │ └ webroot
+        ├ lib/
+        ├ Plugin/
+        └ vendor/
+
+Note the double `app/app/`.
 
 Anything in `app/app/webroot/index.php` will be served up, and all other `index.php` files ignored.
 
@@ -97,14 +102,14 @@ Note, we recommend using the [FriendsOfCake/app-template](https://github.com/Fri
 You normally wont want to have the instance running full time. To pause it, simply perform the following in the command line:
 
 ```bash
-cd ~/Sites/vagrant-chef
+cd ~/Sites/my-project
 vagrant suspend
 ```
 
 You will no longer be able to access the instance after doing this. To continue working, issue the following commands:
 
 ```bash
-cd ~/Sites/vagrant-chef
+cd ~/Sites/my-project
 vagrant resume
 ```
 
@@ -115,7 +120,7 @@ Running `vagrant provision` will reprovision the instance. You won't normally ne
 If there are any updates to the vagrant setup, such as a new feature, new site hosted within, or new service, simply do the following in a terminal:
 
 ```bash
-cd ~/Sites/vagrant-chef
+cd ~/Sites/my-project
 git pull origin master
 vagrant reload --provision
 ```
@@ -125,7 +130,7 @@ vagrant reload --provision
 We're sad to see you leave your work behind, but getting a fresh start isn't hard. Simply do the following:
 
 ```bash
-cd ~/Sites/vagrant-chef
+cd ~/Sites/my-project
 vagrant destroy
 cd ..
 rm -rf vagrant-chef
