@@ -62,13 +62,17 @@ The recommended project structure is as follows:
         
 Note the nested `app/app/` folders and two `.git` folders. The outermost `.git` folder is for versioning `vagrant-chef` under FriendsOfCake Github account, it has the `app/` folder ignored. The innermost one is for versioning your project under your Github account.
 
-To start, clone the `vagrant-chef` repo into a folder named after your project (replace `<your-project>` with a reasonable name). You don't want a name collision with the existing project folder.
+To start, create a blank folder (replace `<your-project>` with a reasonable name). You don't want a name collision with the existing project folder. Then clone the `vagrant-chef` repo into it:
 
 ```bash
-git clone git@github.com:FriendsOfCake/vagrant-chef.git <your-project>
+mkdir <your-project>
+cd <your-project>
+git clone git@github.com:FriendsOfCake/vagrant-chef.git .
 ```
 
-Then create an `app` folder inside it and move the content of your former project folder (with its `.git/`, `.gitignore` and all the stuff) into it, so that the resulting structure resembles the one outlined above.
+Note the dot in the end of the last command.
+
+Then create an `app` folder inside `<your-project>` and set up your CakePHP environment inside it, so that the resulting structure resembles the one outlined above. If you're working on an existing CakePHP project, move the content of your former project folder (with its `.git/`, `.gitignore` and all the stuff) into `<your-project>/app/`.
 
 
 ### Option 2: including `vagrant-chef` recipes into your project's version control
