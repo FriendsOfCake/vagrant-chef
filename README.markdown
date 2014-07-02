@@ -24,17 +24,100 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 
 ## Installation
 
-Download and install both VirtualBox and Vagrant for your particular operating system. Should only take a few minutes on a DSL connection
+Before you start, download and install both VirtualBox and Vagrant for your particular operating system. Should only take a few minutes on a DSL connection. Note: use a binary package for Vagrant, don't try installing it from RubyGems.
 
-Once those are installed, open up a terminal in your project folder. If you want to start from scratch, create a folder and `cd` into it.
+There are two different ways how you can organize your project structure.
 
-Then run this command in your project root to add `vagrant-chef`'s files into your project:
+### Option 1: letting FriendsOfCake version control `vagrant-chef`
+
+If you're satisfied with recipes already bundled with `vagrant-chef` and you're not going to customize or extend them, then it is recommended that you keep `vagrant-chef` under FriendsOfCake's source control.
+
+This setup option allows you to recieve `vagrant-chef` updates from FriendsOfCake effortlessly.
+
+The recommended project structure is as follows:
+
+    your-project/
+    ├ .git/           <- FriendsOfCake/vagrant-chef
+    ├ app/
+    │ ├ .git/         <- your-github-username/your-project
+    │ ├ app/
+    │ │ ├ Config/
+    │ │ ├ Console/
+    │ │ ├ Controller/
+    │ │ ├ Lib/
+    │ │ ├ Model/
+    │ │ ├ Plugin/
+    │ │ ├ tmp/
+    │ │ ├ vendor/
+    │ │ ├ View/
+    │ │ └ webroot/
+    │ ├ lib/
+    │ ├ Plugin/
+    │ ├ vendor/
+    │ └ .gitignore
+    ├ cookbooks/
+    ├ .gitignore
+    ├ Vagrantfile
+    └ ...
+        
+Note the nested `app/app/` folders and two `.git` folders. The outermost `.git` folder is for versioning `vagrant-chef` under FriendsOfCake Github account, it has the `app/` folder ignored. The innermost one is for versioning your project under your Github account.
+
+To start, clone the `vagrant-chef` repo into a folder named after your project (replace `<your-project>` with a reasonable name). You don't want a name collision with the existing project folder.
 
 ```bash
-wget https://github.com/FriendsOfCake/vagrant-chef/archive/master.tar.gz -O - | tar -xz --strip-components 1
+git clone git@github.com:FriendsOfCake/vagrant-chef.git <your-project>
 ```
 
-To set up and run a virtual machine, simply run:
+Then create an `app` folder inside it and move the content of your former project folder (with its `.git/`, `.gitignore` and all the stuff) into it, so that the resulting structure resembles the one outlined above.
+
+
+### Option 2: including `vagrant-chef` recipes into your project's version control
+
+The other approach allows customizing and/or extending `vagrant-chef`'s recipes by keeping them under your project's version control and simplifies your project's structure. The downside is that you'll be unable to receive `vagrant-chef` updates with a simple `git pull`, you'll have to apply updates manually.
+
+To proceed, download a [zip](https://github.com/FriendsOfCake/vagrant-chef/archive/master.zip)/[tar.gz](https://github.com/FriendsOfCake/vagrant-chef/archive/master.tar.gz) snapshot of `vagrant-chef` and extract it into your project's root **without overwriting existing files**.
+
+You can do that manually or with this command ("file exists" errors are intentional):
+
+```bash
+wget https://github.com/FriendsOfCake/vagrant-chef/archive/master.tar.gz -O - | tar -kxz --strip-components 1
+```
+
+Note: if your project has a `Gemfile`, you'll need to merge its contents with `vagrant-chef`'s.
+
+This will result in a structure similar to this:
+
+    your-project/
+    ├ .git/         <- your-github-username/your-project
+    ├ app/
+    │ ├ Config/
+    │ ├ Console/
+    │ ├ Controller/
+    │ ├ Lib/
+    │ ├ Model/
+    │ ├ Plugin/
+    │ ├ tmp/
+    │ ├ vendor/
+    │ ├ View/
+    │ └ webroot/
+    ├ cookbooks/
+    ├ lib/
+    ├ Plugin/
+    ├ vendor/
+    ├ .gitignore
+    ├ Vagrantfile
+    └ ...
+    
+Afterwards, add the new files to your version control:
+
+```bash
+git add -A
+git commit -m "Included `vagrant-chef` into the project"
+```
+
+## Setting up your virtual environment
+
+To set up and run a virtual machine, simply run this command from the folder where `Vagrantfile` is located:
 
 ```bash
 vagrant up
@@ -44,9 +127,14 @@ It may take a bit to download the Vagrant box, but once that is done, you will b
 
 You can grab a coffee or go out for a beer at this point. Takes about half an hour to an hour, depending upon your internet connection and laptop resources.
 
-Of note is that typing `vagrant ssh` while your vagrant instance is up will ssh onto the instance so you can perform commands directly on it. For example, it might be useful to manually install some service, or run a script within the repository.
+The folder that contains the `Vagrantfile` will be mounted into the virtual machine as `/vagrant`. You can edit your project's sources on the host machine and the changes will immediately propagate to the virtual machine.
 
-Once it is done, browse to `http://192.168.13.37/` in your browser, and you should have some sort of `It works!` page! At this point you can set your virtualhosts to point at the instance for maximum win.
+The folder will also be exposed to the web server as `http://192.168.13.37/`. Once the `vagrant up` routine is complete, navigate this URL in your browser, and you should have some sort of `It works!` page! At this point you can set your virtualhosts to point at the instance for maximum win.
+
+Typing `vagrant ssh` while your vagrant instance is up will ssh onto the instance so you can perform commands directly on it. For example, it might be useful to manually install some service, or run a script within the repository.
+
+You can also run single commands in the virtual machine without logging into it with `vagrant ssh -c "some command"`.
+
 
 #### Custom Domain Name
 
@@ -67,76 +155,43 @@ MySQL is available at `0.0.0.0:3306` with either of the following credentials:
 - `root:bananas`
 - `user:password`
 
-#### Developing your application
-
-Your project's root folder will appear in the virtual machine under `/vagrant`.
-
-We suggest that you store your app's code under the `app` directory in your project's root.
-
-    project-root/
-    └ vagrant/
-      └ app/
-        ├ app/
-        │ ├ Config
-        │ ├ Console
-        │ ├ Controller
-        │ ├ Lib
-        │ ├ Model
-        │ ├ Plugin
-        │ ├ tmp
-        │ ├ vendor
-        │ ├ View
-        │ └ webroot
-        ├ lib/
-        ├ Plugin/
-        └ vendor/
-
-Note the double `app/app/`.
-
-Anything in `app/app/webroot/index.php` will be served up, and all other `index.php` files ignored.
-
-Note, we recommend using the [FriendsOfCake/app-template](https://github.com/FriendsOfCake/app-template) for new applications.
 
 ## Starting/Stopping Work
 
-You normally wont want to have the instance running full time. To pause it, simply perform the following in the command line:
+You normally wont want to have the instance running full time. To pause it, simply perform the following command in the folder where `Vagrantfile` is located:
 
 ```bash
-cd ~/Sites/my-project
 vagrant suspend
 ```
 
-You will no longer be able to access the instance after doing this. To continue working, issue the following commands:
+You will no longer be able to access the instance after doing this. To continue working, issue the following command:
 
 ```bash
-cd ~/Sites/my-project
 vagrant resume
 ```
 
+You can also use `vagrant halt` and `vagrant up` for shutting down and booting the virtual machine.
+
 ## Updating Vagrant
 
-Running `vagrant provision` will reprovision the instance. You won't normally need to do the things in the **Installation** section, but this will ensure your setup is as up-to-date as possible.
+Running `vagrant provision` or `vagrant reload --provision` will reprovision the instance. Apply after modifying the recipes.
 
-If there are any updates to the vagrant setup, such as a new feature, new site hosted within, or new service, simply do the following in a terminal:
+If you used option 1 to organize your project, then you can update your `vagrant-chef` recipes from FriendsOfCake. If there are any updates to the vagrant setup, such as a new feature, new site hosted within, or new service, simply do the following in a terminal within the folder where `Vagrantfile` is located:
 
 ```bash
-cd ~/Sites/my-project
 git pull origin master
 vagrant reload --provision
 ```
 
-## Starting fresh
+## Destroying the virtual machine
 
-We're sad to see you leave your work behind, but getting a fresh start isn't hard. Simply do the following:
+We're sad to see you leave your work behind, but removing the virtual machine form your system isn't hard. Simply iexecute this command within the folder where `Vagrantfile` is located:
 
 ```bash
-cd ~/Sites/my-project
 vagrant destroy
-cd ..
-rm -rf vagrant-chef
 ```
 
-This will destroy your vagrant installation and remove all traces of it from your laptop.
+This will destroy your vagrant installation, and you can proceed to remove the project folder from your computer.
 
 ## Bugs?
 
