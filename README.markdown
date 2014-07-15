@@ -41,10 +41,10 @@ cd ~/Sites/vagrant-chef
 vagrant up
 ```
 
-Alternativly if you would like to make use of [Vagrant Cloud](https://vagrantcloud.com/lorenzo/php-baking) you can simply run the following.
+Alternativly if you would like to make use of [Vagrant Cloud](https://vagrantcloud.com/friendsofcake/cakephp-baking/version/1) you can simply run the following.
 
 ```bash
-vagrant init lorenzo/php-baking
+vagrant init friendsofcake/cakephp-baking
 ```
 
 It may take a bit to download the Vagrant box, but once that is done, you will be prompted for your laptop password. This is so we can properly expose the IP of the vagrant instance to your machine. Type in your password and let it continue running.
