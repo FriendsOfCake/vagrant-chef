@@ -24,7 +24,7 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 
 ## Installation
 
-Download and install both VirtualBox and Vagrant for your particular operating system. Should only take a few minutes on a DSL connection
+Download and install both VirtualBox and Vagrant for your particular operating system. Should only take a few minutes on a DSL connection.
 
 Once those are downloaded, open up a terminal. We'll need to clone this repository and setup vagrant:
 
@@ -39,6 +39,12 @@ Now we need to setup the vagrant installation. This is pretty easy:
 ```bash
 cd ~/Sites/vagrant-chef
 vagrant up
+```
+
+Alternativly if you would like to make use of [Vagrant Cloud](https://vagrantcloud.com/friendsofcake/cakephp-baking/version/1) you can simply run the following.
+
+```bash
+vagrant init friendsofcake/cakephp-baking
 ```
 
 It may take a bit to download the Vagrant box, but once that is done, you will be prompted for your laptop password. This is so we can properly expose the IP of the vagrant instance to your machine. Type in your password and let it continue running.
