@@ -127,6 +127,12 @@ To set up and run a virtual machine, simply run this command from the folder whe
 vagrant up
 ```
 
+Alternatively, if you would like to make use of [Vagrant Cloud](https://vagrantcloud.com/), you can simply run the following.
+
+```bash
+vagrant init friendsofcake/cakephp-baking
+```
+
 It may take a bit to download the Vagrant box, but once that is done, you will be prompted for your laptop password. This is so we can properly expose the IP of the vagrant instance to your machine. Type in your password and let it continue running.
 
 You can grab a coffee or go out for a beer at this point. Takes about half an hour to an hour, depending upon your internet connection and laptop resources.
