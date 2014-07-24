@@ -7,7 +7,7 @@ directory "/var/virtual" do
 end
 
 directory "/var/log/app" do
-  owner "www-data"
+  owner "vagrant"
   group "www-data"
   mode  0755
   recursive true
