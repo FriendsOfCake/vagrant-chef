@@ -1,3 +1,12 @@
-.vagrant
-.DS_Store
-app
+# ignore everything
+*
+
+# but not these files
+cookbooks
+.gitignore
+.ruby-version
+.travis.yml
+Gemfile
+Gemfile.lock
+README.markdown
+Vagrantfile
