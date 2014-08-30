@@ -121,17 +121,15 @@ git pull origin master
 vagrant reload --provision
 ```
 
-## Starting fresh
+## Destroying the virtual machine
 
-We're sad to see you leave your work behind, but getting a fresh start isn't hard. Simply do the following:
+We're sad to see you leave your work behind, but removing the virtual machine form your system isn't hard. Simply execute this command within the folder where `Vagrantfile` is located:
 
 ```bash
 vagrant destroy
-cd ..
-rm -rf vagrant-chef
 ```
 
-This will destroy your vagrant installation and remove all traces of it from your laptop.
+This will destroy your vagrant installation, and you can proceed to remove the project folder from your computer.
 
 ## Bugs?
 
