@@ -137,10 +137,6 @@ This will destroy your vagrant installation, and you can proceed to remove the p
 
 File a github issue.
 
-## Todo
-
-- Add phpmyadmin to setup
-
 ## MIT
 
 Copyright (c) 2012 Jose Diaz-Gonzalez
