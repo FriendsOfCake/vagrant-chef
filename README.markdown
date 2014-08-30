@@ -110,6 +110,8 @@ You will no longer be able to access the instance after doing this. To continue 
 vagrant resume
 ```
 
+You can also use `vagrant halt` and `vagrant up` for shutting down and booting the virtual machine.
+
 ## Updating Vagrant
 
 Running `vagrant provision` will reprovision the instance. You won't normally need to do the things in the **Installation** section, but this will ensure your setup is as up-to-date as possible.
