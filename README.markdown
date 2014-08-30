@@ -104,7 +104,7 @@ You normally wont want to have the instance running full time. To pause it, simp
 vagrant suspend
 ```
 
-You will no longer be able to access the instance after doing this. To continue working, issue the following commands:
+You will no longer be able to access the instance after doing this. To continue working, issue the following command:
 
 ```bash
 vagrant resume
