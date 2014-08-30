@@ -29,7 +29,6 @@ Download and install both VirtualBox and Vagrant for your particular operating s
 Once those are downloaded, open up a terminal. We'll need to clone this repository and setup vagrant:
 
 ```bash
-cd ~/Sites
 git clone https://github.com/FriendsOfCake/vagrant-chef.git
 cd vagrant-chef
 ```
@@ -37,7 +36,6 @@ cd vagrant-chef
 Now we need to setup the vagrant installation. This is pretty easy:
 
 ```bash
-cd ~/Sites/vagrant-chef
 vagrant up
 ```
 
@@ -103,14 +101,12 @@ Note, we recommend using the [FriendsOfCake/app-template](https://github.com/Fri
 You normally wont want to have the instance running full time. To pause it, simply perform the following in the command line:
 
 ```bash
-cd ~/Sites/vagrant-chef
 vagrant suspend
 ```
 
 You will no longer be able to access the instance after doing this. To continue working, issue the following commands:
 
 ```bash
-cd ~/Sites/vagrant-chef
 vagrant resume
 ```
 
@@ -121,7 +117,6 @@ Running `vagrant provision` will reprovision the instance. You won't normally ne
 If there are any updates to the vagrant setup, such as a new feature, new site hosted within, or new service, simply do the following in a terminal:
 
 ```bash
-cd ~/Sites/vagrant-chef
 git pull origin master
 vagrant reload --provision
 ```
@@ -131,7 +126,6 @@ vagrant reload --provision
 We're sad to see you leave your work behind, but getting a fresh start isn't hard. Simply do the following:
 
 ```bash
-cd ~/Sites/vagrant-chef
 vagrant destroy
 cd ..
 rm -rf vagrant-chef
