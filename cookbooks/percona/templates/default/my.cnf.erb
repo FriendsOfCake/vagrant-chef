@@ -17,7 +17,8 @@ skip-slave-start
 back_log                = 50
 basedir                 = /usr
 <% if @node['mysql']['bind_address'] != false %>bind-address            = <%= @node['mysql']['bind_address'] || '0.0.0.0' %><% end %>
-character-set-server    = utf8
+character_set_server    = utf8
+collation_server        = utf8_general_ci
 datadir                 = /var/lib/mysql
 ft_min_word_len         = 3
 key_buffer_size         = <%= @node['mysql']['key_buffer'] %>
