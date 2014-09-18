@@ -32,7 +32,7 @@ end
 
 node['mysql']['databases'].each do |database_name, enabled|
   execute "create-mysql-database-#{database_name}" do
-    command "mysql -uroot -p#{node['mysql']['server_root_password']} -e \"CREATE DATABASE #{database_name}\" && touch /etc/mysql/database-#{database_name}"
+    command "mysql -uroot -p#{node['mysql']['server_root_password']} -e \"CREATE DATABASE #{database_name} character set utf8\" && touch /etc/mysql/database-#{database_name}"
     creates "/etc/mysql/database-#{database_name}"
   end
 end
