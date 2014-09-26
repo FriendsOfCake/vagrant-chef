@@ -41,12 +41,24 @@ template "/etc/nginx/nginx.conf" do
 end
 
 template "/etc/nginx/sites-available/default" do
-  source "app.dev.erb"
+  source "default.erb"
+  owner "root"
+  group "root"
+  mode 0644
+  notifies :restart, "service[nginx]"
+end
+
+template "/etc/nginx/sites-available/default.dev" do
+  source "default.dev.erb"
   owner "root"
   group "root"
   mode 0644
   variables(
-    :server_name => node['nginx']['server_name']
+    :server_name => node['foc']['app']['name']
   )
   notifies :restart, "service[nginx]"
+end
+
+link "/etc/nginx/sites-enabled/default.dev" do
+  to "/etc/nginx/sites-available/default.dev"
 end
