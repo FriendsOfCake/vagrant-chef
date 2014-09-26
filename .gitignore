@@ -10,3 +10,4 @@ Gemfile
 Gemfile.lock
 README.markdown
 Vagrantfile
+!vagrant.yml.default
