@@ -45,7 +45,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
 
 # Load configuration
-  vconfig = {
+  settings = {
     "app" => {
       "name" => "app.dev"
     },
@@ -53,18 +53,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "ip_address" => "192.168.13.37"
     }
   }
-  vconfig = vconfig.merge(YAML::load_file("vagrant.yml")) if File.exist?("vagrant.yml")
+  settings = settings.merge(YAML::load_file("vagrant.yml")) if File.exist?("vagrant.yml")
 
   config.vm.box = "precise32"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
-  config.vm.network "private_network", ip: vconfig['vm']['ip_address']
+  config.vm.network "private_network", ip: settings['vm']['ip_address']
   config.vm.synced_folder ".", "/vagrant"
   config.vm.provision :shell, inline: $script
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
     chef.roles_path = "cookbooks/roles"
-    chef.json = {"vconfig" => vconfig}
+    chef.json = {"foc" => settings}
     chef.add_role("vagrant")
   end
 
