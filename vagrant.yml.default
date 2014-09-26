@@ -6,4 +6,4 @@ app:
   name: app.dev
 
 vm:
-  ip_address: 10.36.2.10
+  ip_address: 192.168.13.37
