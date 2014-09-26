@@ -64,6 +64,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks"
     chef.roles_path = "cookbooks/roles"
+    chef.json = {"vconfig" => vconfig}
     chef.add_role("vagrant")
   end
 
