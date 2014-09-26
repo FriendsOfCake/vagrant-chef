@@ -44,15 +44,8 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
 
-# Load configuration
-  settings = {
-    "app" => {
-      "name" => "app.dev"
-    },
-    "vm" => {
-      "ip_address" => "192.168.13.37"
-    }
-  }
+  # Load configuration
+  settings = YAML::load_file("vagrant.yml.default")
   settings = settings.merge(YAML::load_file("vagrant.yml")) if File.exist?("vagrant.yml")
 
   config.vm.box = "precise32"
