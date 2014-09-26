@@ -96,6 +96,13 @@ Anything in `app/app/webroot/index.php` will be served up, and all other `index.
 
 Note, we recommend using the [FriendsOfCake/app-template](https://github.com/FriendsOfCake/app-template) for new applications.
 
+## Configuration
+
+Even though the default server settings should suffice in most situations vagrant-chef offers a method to override some of them. Simply create an `vagrant.yml` configuration file and use one of the following options:
+
+- `app: name`: changes the servername used to connect to your app (e.g. api.domain.local)
+- `vm: ip_address`: changes the ip-address used to connect to your server
+
 ## Starting/Stopping Work
 
 You normally wont want to have the instance running full time. To pause it, simply perform the following in the command line:
