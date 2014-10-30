@@ -67,7 +67,7 @@ echo "192.168.13.37 www.app.dev app.dev" >> "/etc/hosts"
 
 #### Database Access
 
-MySQL is available at `0.0.0.0:3306` with either of the following credentials:
+MySQL is available at `192.168.13.37:3306` with either of the following credentials:
 
 - `root:bananas`
 - `user:password`
