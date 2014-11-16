@@ -72,6 +72,10 @@ MySQL is available at `192.168.13.37:3306` with either of the following credenti
 - `root:bananas`
 - `user:password`
 
+Postgres is available at `192.168.13.37:5432` with the following credentials:
+
+- `postgres:password`
+
 #### Developing your application
 
 When you want to use vagrant instance for a development environment, you can create an `app` directory with the contents of your application. Within the vm, this would be an example of your directory structure:
