@@ -16,6 +16,7 @@ include_recipe "php::apt_repository"
   "php5-memcached",
   "php5-redis",
   "php5-mysql",
+  "php5-pgsql",
   "php5-xdebug",
   "php-apc",
   "php-pear",
