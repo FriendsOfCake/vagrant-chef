@@ -23,6 +23,15 @@ template "#{node['postgresql']['dir']}/pg_hba.conf" do
   notifies :restart, 'service[postgresql]', :immediately
 end
 
+bash "add-default-username" do
+  user 'postgres'
+  code <<-EOH
+echo "CREATE USER username WITH ENCRYPTED PASSWORD '#{node['postgresql']['password']['postgres']}' CREATEDB;" | psql
+createdb username
+  EOH
+  action :run
+end
+
 # NOTE: Consider two facts before modifying "assign-postgres-password":
 # (1) Passing the "ALTER ROLE ..." through the psql command only works
 #     if passwordless authorization was configured for local connections.

@@ -72,9 +72,10 @@ MySQL is available at `192.168.13.37:3306` with either of the following credenti
 - `root:bananas`
 - `user:password`
 
-Postgres is available at `192.168.13.37:5432` with the following credentials:
+Postgres is available at `192.168.13.37:5432` with either of the following credentials:
 
 - `postgres:password`
+- `username:password`
 
 #### Developing your application
 
