@@ -4,13 +4,13 @@
   end
 end
 
-execute "gem-update" do
+execute "update rubygems" do
   action :run
-  command "gem update --system && touch /var/cache/.gem-updated"
+  command "gem update --system && touch /var/chef/gems_updated"
+  creates "/var/chef/gems_updated"
   environment({
     "REALLY_GEM_UPDATE_SYSTEM" => "yes"
   })
-  not_if { ::FileTest.exists?("/var/cache/.gem-updated") }
 end
 
 if platform_family?("debian")
