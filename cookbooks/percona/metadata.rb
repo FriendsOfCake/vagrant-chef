@@ -1,1 +1,3 @@
 name "percona"
+
+depends "apt"
