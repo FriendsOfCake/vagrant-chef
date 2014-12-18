@@ -49,7 +49,6 @@ query_cache_limit       = <%= @node['mysql']['query_cache_limit'] %>
 query_cache_size        = <%= @node['mysql']['query_cache_size'] %>
 
 # Performance monitoring settings
-enable_query_response_time_stats = 1
 log-queries-not-using-indexes    = 0
 <% if @node['mysql']['slave'] == true %>
 slow_query_log          = 1
