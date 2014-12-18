@@ -33,10 +33,21 @@ apt-get update > /dev/null
 
 echo "- installing build requirements"
 export DEBIAN_FRONTEND=noninteractive
-apt-get install -qq -y --force-yes build-essential unzip libssl-dev libxslt-dev libxml2-dev libreadline-dev zlib1g-dev
-apt-get install -qq -y --force-yes binutils-doc gcc autoconf flex bison libtool
-apt-get install -qq -y --force-yes ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 irb1.9.1 ri1.9.1 rdoc1.9.1 libopenssl-ruby1.9.1
+apt-get install -qq -y --force-yes build-essential unzip libssl-dev libxslt-dev libxml2-dev libreadline-dev zlib1g-dev > /dev/null
+apt-get install -qq -y --force-yes binutils-doc gcc autoconf flex bison libtool > /dev/null
 
+if [ ! -f /etc/apt/sources.list.d/brightbox-ruby-ng-trusty.list ]; then
+  echo "- installing latest ruby version"
+  apt-get install -qq -y --force-yes software-properties-common python-software-properties > /dev/null
+  add-apt-repository --yes ppa:brightbox/ruby-ng >> /dev/null 2>&1
+  apt-get update > /dev/null
+  apt-get install -qq -y --force-yes ruby2.1 ruby2.1-dev > /dev/null
+fi
+
+command -v foo >/dev/null 2>&1 || {
+  echo "- installing chef"
+  gem install chef --quiet --version 12.0.3 > /dev/null
+}
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
@@ -44,8 +55,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
 
-  config.vm.box = "precise32"
-  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  config.vm.box = "chef/ubuntu-14.04"
   config.vm.network "private_network", ip: "192.168.13.37"
   config.vm.synced_folder ".", "/vagrant"
   config.vm.provision :shell, inline: $script
