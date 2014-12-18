@@ -58,13 +58,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "chef/ubuntu-14.04"
   config.vm.network "private_network", ip: "192.168.13.37"
   config.vm.synced_folder ".", "/vagrant"
-  config.vm.provision :shell, inline: $script
-
-  config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "cookbooks"
-    chef.roles_path = "cookbooks/roles"
-    chef.add_role("vagrant")
-  end
 
   config.vm.provider "virtualbox" do |v, override|
     v.customize ["modifyvm", :id, "--rtcuseutc", "on"]
@@ -72,8 +65,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
-  # Every Vagrant virtual environment requires a box to build off of.
   config.vm.provider :vmware_fusion do |v, override|
     v.vmx["memsize"] = "1024"
+  end
+
+  config.vm.provision :shell, inline: $script
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = "cookbooks"
+    chef.roles_path = "cookbooks/roles"
+    chef.add_role("vagrant")
   end
 end
