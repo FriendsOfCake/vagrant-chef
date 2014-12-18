@@ -1,6 +1,8 @@
 include_recipe "php::apt_repository"
 
 [
+  "sqlite",
+  "php5-sqlite",
   "php5-fpm",
   "php5-cli",
   "php5-common",
