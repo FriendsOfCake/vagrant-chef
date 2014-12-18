@@ -21,15 +21,18 @@ template "#{node['postgresql']['dir']}/pg_hba.conf" do
   group "postgres"
   mode 00600
   notifies :restart, 'service[postgresql]', :immediately
+  notifies :run, 'execute[add-default-username]', :immediately
 end
 
-bash "add-default-username" do
+execute "add-default-username" do
+  action :nothing
   user 'postgres'
-  code <<-EOH
+  command <<-EOH
 echo "CREATE USER username WITH ENCRYPTED PASSWORD '#{node['postgresql']['password']['postgres']}' CREATEDB;" | psql
 createdb username
+touch /var/chef/postgres_default_username
   EOH
-  action :run
+  creates "/var/chef/postgres_default_username"
 end
 
 # NOTE: Consider two facts before modifying "assign-postgres-password":
