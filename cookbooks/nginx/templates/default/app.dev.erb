@@ -1,34 +1,34 @@
 server {
-	listen 80;
-	server_name <%= @server_name %>;
-	root /vagrant/app/webroot;
-	access_log /var/log/nginx/<%= @server_name %>-access.log;
+  listen 80;
+  server_name <%= @server_name %>;
+  root /vagrant/app/webroot;
+  access_log /var/log/nginx/<%= @server_name %>-access.log;
 
-	index index.php index.html;
+  index index.php index.html;
 
-	location ~ /\.ht {
-		deny all;
-	}
+  location ~ /\.ht {
+    deny all;
+  }
 
-	location ~ \.php$ {
-		fastcgi_pass unix:/var/run/php5-fpm.sock;
-		include fastcgi_params;
-	}
+  location ~ \.php$ {
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    include fastcgi_params;
+  }
 
-	location / {
-		try_files $uri $uri/ /index.php?$args;
-		expires max;
-		access_log on;
-	}
+  location / {
+    try_files $uri $uri/ /index.php?$args;
+    expires max;
+    access_log on;
+  }
 
-	location @fallback {
-		root /etc/nginx/app;
-		index index.html;
-	}
+  location @fallback {
+    root /etc/nginx/app;
+    index index.html;
+  }
 }
 
 server {
-	listen 80;
-	server_name www.<%= @server_name %>;
-	rewrite ^ http://<%= @server_name %>$uri permanent;
+  listen 80;
+  server_name www.<%= @server_name %>;
+  rewrite ^ http://<%= @server_name %>$uri permanent;
 }
