@@ -1,1 +1,3 @@
 name "php"
+
+depends "apt"

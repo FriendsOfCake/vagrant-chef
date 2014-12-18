@@ -1,1 +1,3 @@
 name "nginx"
+
+depends "apt"
