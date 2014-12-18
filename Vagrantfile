@@ -66,8 +66,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_role("vagrant")
   end
 
+  config.vm.provider "virtualbox" do |v, override|
+    v.customize ["modifyvm", :id, "--rtcuseutc", "on"]
+    v.customize ["modifyvm", :id, "--cpuexecutioncap", "90"]
+    v.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+
+  # Every Vagrant virtual environment requires a box to build off of.
   config.vm.provider :vmware_fusion do |v, override|
-    override.vm.box = "precise64_vmware_fusion"
-    override.vm.box_url = "http://files.vagrantup.com/precise64_vmware_fusion.box"
+    v.vmx["memsize"] = "1024"
   end
 end
