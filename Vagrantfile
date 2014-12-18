@@ -63,10 +63,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--rtcuseutc", "on"]
     v.customize ["modifyvm", :id, "--cpuexecutioncap", "90"]
     v.customize ["modifyvm", :id, "--memory", "1024"]
+    v.customize ["modifyvm", :id, "--cpus", "1"]
   end
 
   config.vm.provider :vmware_fusion do |v, override|
     v.vmx["memsize"] = "1024"
+    v.vmx["numvcpus"] = "1"
   end
 
   config.vm.provision :shell, inline: $script
