@@ -21,7 +21,7 @@ character_set_server    = utf8
 collation_server        = utf8_general_ci
 datadir                 = /var/lib/mysql
 ft_min_word_len         = 3
-key_buffer_size         = <%= @node['mysql']['key_buffer'] %>
+key_buffer              = <%= @node['mysql']['key_buffer'] %>
 lc-messages-dir         = /usr/share/mysql/english
 log-error               = /var/log/mysql/mysqld.err
 <% if @node['mysql']['slave'] == true %>max_allowed_packet      = 64M<% end %>
