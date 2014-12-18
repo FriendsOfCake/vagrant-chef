@@ -1,5 +1,3 @@
-include_recipe "php::apt_repository"
-
 [
   "php5-fpm",
   "php5-cli",
