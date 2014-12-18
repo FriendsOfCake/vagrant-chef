@@ -1,10 +1,10 @@
 include_recipe "percona::apt_repository"
 
-package "percona-server-common-5.5" do
+package "percona-server-common-5.6" do
   action :install
 end
 
-package "percona-server-server-5.5" do
+package "percona-server-server-5.6" do
   action :install
 end
 
