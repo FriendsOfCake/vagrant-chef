@@ -1,4 +1,3 @@
-
 execute "trigger apt-get update" do
   command "true"
   creates "/var/chef/apt_get_updated"
