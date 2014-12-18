@@ -30,8 +30,12 @@ execute "add-default-username" do
   command <<-EOH
 echo "CREATE USER username WITH ENCRYPTED PASSWORD '#{node['postgresql']['password']['postgres']}' CREATEDB;" | psql
 createdb username
-touch /var/chef/postgres_default_username
   EOH
+  creates "/var/chef/postgres_default_username"
+end
+
+execute "touch /var/chef/postgres_default_username" do
+  action :run
   creates "/var/chef/postgres_default_username"
 end
 
@@ -44,9 +48,9 @@ end
 #     the plain text password, and testing the encrypted (md5 digest)
 #     version is not straight-forward.
 execute "assign-postgres-password" do
+  action :run
   user 'postgres'
   command <<-EOH
 echo "ALTER ROLE postgres ENCRYPTED PASSWORD '#{node['postgresql']['password']['postgres']}';" | psql
   EOH
-  action :run
 end
