@@ -76,4 +76,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.roles_path = "cookbooks/roles"
     chef.add_role("vagrant")
   end
+
+  config.vm.provision :shell, inline: "/usr/local/bin/composer self-update"
 end
