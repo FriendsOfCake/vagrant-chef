@@ -1,5 +1,3 @@
-::Chef::Node.send(:include, Opscode::OpenSSL::Password)
-
 default['mysql']['server_debian_password']  = 'password'
 default['mysql']['server_root_password']    = 'password'
 default['mysql']['server_repl_password']    = 'password'
