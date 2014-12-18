@@ -33,10 +33,7 @@ end
 template "/etc/mysql/my.cnf" do
   source "my.cnf.erb"
   variables :mysql => node['mysql']
-end
-
-service "mysql" do
-  action :restart
+  notifies :restart, 'service[mysql]', :immediately
 end
 
 node['mysql']['databases'].each do |database_name, enabled|
