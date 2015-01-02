@@ -22,7 +22,7 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 - Patience, and about an hour or so of your time
 - A fairly fast internet connection. Dial-up will take 3 days to get everything going ;)
 
-## Installatino
+## Installation
 
 Download and install both VirtualBox and Vagrant for your particular operating system. Should only take a few minutes on a DSL connection.
 
