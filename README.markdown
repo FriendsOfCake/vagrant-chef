@@ -3,7 +3,7 @@
 
 Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the following features:
 
-- Ubuntu 12.04 Precise Pangolin
+- Ubuntu 14.04 LTS Trusty Tahr
 - Nginx 1.6
 - PHP 5.5
 - Ruby 2.1
@@ -11,7 +11,7 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 - Postgres 9.3
 - Redis 2.8
 - Memcached 1.4
-- Git 2.0
+- Git 2.2
 - Composer
 - The ruby gems `heroku`, `hub`, `travis` and `travis-lint`
 
