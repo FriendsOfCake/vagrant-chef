@@ -1,0 +1,9 @@
+# FriendsOfCake
+#
+# Override default vagrant-chef settings
+---
+app:
+  name: app.dev
+
+vm:
+  ip_address: 192.168.13.37
