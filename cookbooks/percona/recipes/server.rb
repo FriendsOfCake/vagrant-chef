@@ -50,7 +50,7 @@ node['mysql']['users'].each do |user, password|
     mysql -uroot -p#{node['mysql']['server_root_password']} -e "CREATE USER '#{user}'@'::1' IDENTIFIED BY '#{password}';       GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'::1' WITH GRANT OPTION;       FLUSH PRIVILEGES;"
     mysql -uroot -p#{node['mysql']['server_root_password']} -e "CREATE USER '#{user}'@'localhost' IDENTIFIED BY '#{password}'; GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'localhost' WITH GRANT OPTION; FLUSH PRIVILEGES;"
     mysql -uroot -p#{node['mysql']['server_root_password']} -e "CREATE USER '#{user}'@'vagrant' IDENTIFIED BY '#{password}';   GRANT ALL PRIVILEGES ON *.* TO '#{user}'@'vagrant' WITH GRANT OPTION;   FLUSH PRIVILEGES;"
-    touch /etc/mysql/user-#{user}"
+    touch /etc/mysql/user-#{user}
   EOH
     creates "/etc/mysql/user-#{user}"
   end
