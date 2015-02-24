@@ -21,7 +21,7 @@ character_set_server    = utf8
 collation_server        = utf8_general_ci
 datadir                 = /var/lib/mysql
 ft_min_word_len         = 3
-key_buffer_size         = <%= @node['mysql']['key_buffer'] %>
+key_buffer              = <%= @node['mysql']['key_buffer'] %>
 lc-messages-dir         = /usr/share/mysql/english
 log-error               = /var/log/mysql/mysqld.err
 <% if @node['mysql']['slave'] == true %>max_allowed_packet      = 64M<% end %>
@@ -49,7 +49,6 @@ query_cache_limit       = <%= @node['mysql']['query_cache_limit'] %>
 query_cache_size        = <%= @node['mysql']['query_cache_size'] %>
 
 # Performance monitoring settings
-enable_query_response_time_stats = 1
 log-queries-not-using-indexes    = 0
 <% if @node['mysql']['slave'] == true %>
 slow_query_log          = 1

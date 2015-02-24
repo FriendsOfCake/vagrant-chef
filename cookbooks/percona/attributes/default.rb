@@ -4,7 +4,7 @@ default['mysql']['server_repl_password']    = 'password'
 default['mysql']['bind_address']            = '0.0.0.0'
 default['mysql']['datadir']                 = "/var/lib/mysql"
 
-default['mysql']['key_buffer_size']         = "1G"
+default['mysql']['key_buffer']              = "1G"
 default['mysql']['max_connections']         = "450"
 default['mysql']['tmpdir']                  = "/tmp"
 default['mysql']['query_cache_limit']       = "20M"

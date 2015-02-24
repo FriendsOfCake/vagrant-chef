@@ -1,42 +1,34 @@
 server {
-	listen 80;
-	server_name <%= @server_name %>;
-	root /vagrant/app/webroot;
-	access_log /var/log/nginx/<%= @server_name %>-access.log;
+  listen 80;
+  server_name <%= @server_name %>;
+  root /vagrant/app/webroot;
+  access_log /var/log/nginx/<%= @server_name %>-access.log;
 
-	index index.php index.html;
+  index index.php index.html;
 
-	location ~ /\.ht {
-		deny all;
-	}
+  location ~ /\.ht {
+    deny all;
+  }
 
-	location ~ \.php$ {
-		fastcgi_pass unix:/var/run/php5-fpm.sock;
-		include fastcgi_params;
-		fastcgi_param CACHE_URL             "redis://localhost:6379/?prefix=APP_NAME_&duration=DURATION";
-		fastcgi_param CACHE_DEBUG_KIT_URL   "redis://localhost:6379/?prefix=APP_NAME_debug_kit_&duration=DURATION";
-		fastcgi_param CACHE_CAKE_CORE_URL   "redis://localhost:6379/?prefix=APP_NAME_cake_core_&duration=DURATION";
-		fastcgi_param CACHE_CAKE_MODEL_URL  "redis://localhost:6379/?prefix=APP_NAME_cake_model_&duration=DURATION";
-		fastcgi_param DATABASE_URL          "mysql://root:<%= node['mysql']['server_root_password'] %>@localhost/database_name?encoding=utf8";
-		fastcgi_param DATABASE_TEST_URL     "mysql://root:<%= node['mysql']['server_root_password'] %>@localhost/test_database_name?encoding=utf8";
-		fastcgi_param LOG_URL               "file:///var/log/app/?types=notice,info,debug&file=debug";
-		fastcgi_param LOG_ERROR_URL         "file:///var/log/app/?types=warning,error,critical,alert,emergency&file=error";
-	}
+  location ~ \.php$ {
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    include fastcgi_params;
+  }
 
-	location / {
-		try_files $uri $uri/ /index.php?$args;
-		expires max;
-		access_log on;
-	}
+  location / {
+    try_files $uri $uri/ /index.php?$args;
+    expires max;
+    access_log on;
+  }
 
-	location @fallback {
-		root /etc/nginx/app;
-		index index.html;
-	}
+  location @fallback {
+    root /etc/nginx/app;
+    index index.html;
+  }
 }
 
 server {
-	listen 80;
-	server_name www.<%= @server_name %>;
-	rewrite ^ http://<%= @server_name %>$uri permanent;
+  listen 80;
+  server_name www.<%= @server_name %>;
+  rewrite ^ http://<%= @server_name %>$uri permanent;
 }

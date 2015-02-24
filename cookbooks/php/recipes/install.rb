@@ -1,5 +1,3 @@
-include_recipe "php::apt_repository"
-
 [
   "sqlite",
   "php5-sqlite",
