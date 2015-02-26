@@ -26,6 +26,14 @@
   end
 end
 
+link "/etc/php5/cli/conf.d/mcrypt.ini" do
+  to "/etc/php5/mods-available/mcrypt.ini"
+end
+
+link "/etc/php5/fpm/conf.d/mcrypt.ini" do
+  to "/etc/php5/mods-available/mcrypt.ini"
+end
+
 service "php5-fpm" do
   action :nothing
 end
