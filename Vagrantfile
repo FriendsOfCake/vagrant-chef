@@ -71,6 +71,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.vmx["numvcpus"] = "1"
   end
 
+  config.vm.provider :parallels do |v, override|
+    override.vm.box = "parallels/ubuntu-14.04"
+    v.memory = 1024
+    v.cpus = 1
+    # v.optimize_power_consumption = false
+  end
+
   config.vm.provision :shell, inline: $script
 
   config.vm.provision :chef_solo do |chef|
