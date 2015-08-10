@@ -16,14 +16,19 @@ server {
   }
 
   location / {
+    if (!-f $document_root/index.php) {
+      return 503;
+    }
+
     try_files $uri $uri/ /index.php?$args;
     expires max;
     access_log on;
   }
 
+  error_page 503 @fallback;
   location @fallback {
     root /etc/nginx/app;
-    index index.html;
+    try_files /index.html =503;
   }
 }
 
