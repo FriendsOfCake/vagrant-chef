@@ -94,7 +94,7 @@ When you want to use vagrant instance for a development environment, you can cre
     | |-/vagrant/app/app/View
     | |-/vagrant/app/app/webroot
     |-/vagrant/app/lib
-    |-/vagrant/app/Plugin
+    |-/vagrant/app/plugin
     |-/vagrant/app/vendor
 
 Anything in `app/app/webroot/index.php` will be served up, and all other `index.php` files ignored.
