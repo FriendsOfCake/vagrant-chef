@@ -89,9 +89,9 @@ When you want to use vagrant instance for a development environment, you can cre
     | |-/vagrant/app/app/Lib
     | |-/vagrant/app/app/Model
     | |-/vagrant/app/app/Plugin
-    | |-/vagrant/app/app/tmp
     | |-/vagrant/app/app/Vendor
     | |-/vagrant/app/app/View
+    |-/vagrant/app/tmp
     |-/vagrant/app/webroot
     |-/vagrant/app/lib
     |-/vagrant/app/plugin
