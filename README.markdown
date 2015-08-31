@@ -89,15 +89,15 @@ When you want to use vagrant instance for a development environment, you can cre
     | |-/vagrant/app/app/Lib
     | |-/vagrant/app/app/Model
     | |-/vagrant/app/app/Plugin
-    | |-/vagrant/app/app/tmp
-    | |-/vagrant/app/app/vendor
+    | |-/vagrant/app/app/Vendor
     | |-/vagrant/app/app/View
-    | |-/vagrant/app/app/webroot
+    |-/vagrant/app/tmp
+    |-/vagrant/app/webroot
     |-/vagrant/app/lib
-    |-/vagrant/app/Plugin
+    |-/vagrant/app/plugin
     |-/vagrant/app/vendor
 
-Anything in `app/app/webroot/index.php` will be served up, and all other `index.php` files ignored.
+Anything in `app/webroot/index.php` will be served up, and all other `index.php` files ignored.
 
 Note, we recommend using the [FriendsOfCake/app-template](https://github.com/FriendsOfCake/app-template) for new applications.
 
