@@ -16,7 +16,7 @@ server {
   }
 
   location / {
-    try_files $uri $uri/ /index.php?$args = @fallback;
+    try_files $uri $uri/ /index.php?$args @fallback;
     expires max;
     access_log on;
   }
