@@ -72,7 +72,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provider :parallels do |v, override|
-    override.vm.box = "parallels/ubuntu-14.04"
     v.memory = 1024
     v.cpus = 1
   end
