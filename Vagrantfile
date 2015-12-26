@@ -41,7 +41,7 @@ if [ ! -f /etc/apt/sources.list.d/brightbox-ruby-ng-trusty.list ]; then
   apt-get install -qq -y --force-yes software-properties-common python-software-properties > /dev/null
   add-apt-repository --yes ppa:brightbox/ruby-ng >> /dev/null 2>&1
   apt-get update > /dev/null
-  apt-get install -qq -y --force-yes ruby2.1 ruby2.1-dev > /dev/null
+  apt-get install -qq -y --force-yes ruby2.2 ruby2.2-dev > /dev/null
 fi
 
 command -v foo >/dev/null 2>&1 || {
