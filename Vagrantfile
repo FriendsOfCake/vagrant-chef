@@ -46,7 +46,7 @@ fi
 
 command -v foo >/dev/null 2>&1 || {
   echo "- installing chef"
-  gem install chef --quiet --version 12.0.3 > /dev/null
+  gem install chef --quiet --version 12.7.2 > /dev/null
 }
 SCRIPT
 
