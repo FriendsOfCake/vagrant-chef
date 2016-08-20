@@ -41,7 +41,6 @@ end
   "addressable",
   "gh",
   "travis",
-  "travis-lint"
 ].each do |g|
   gem_package g do
     gem_binary("/usr/bin/gem")
