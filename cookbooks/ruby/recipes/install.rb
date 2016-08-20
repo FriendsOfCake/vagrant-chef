@@ -21,10 +21,10 @@ execute "update rubygems" do
   })
 end
 
-if platform_family?("debian")
-  execute "command -v heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh"
-else
-  execute "command -v heroku || wget -qO- https://toolbelt.heroku.com/install.sh | sh"
+execute "install heroku" do
+  action :run
+  command "command -v heroku || wget -qO- #{node['ruby']['heroku']['install_url']} | sh && touch /var/chef/heroku_installed"
+  creates "/var/chef/heroku_installed"
 end
 
 # TODO: Fix travis
