@@ -8,7 +8,7 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 - PHP 5.5
 - Ruby 2.3 (via [ppa](https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng))
 - Percona MySQL 5.6 (via [percona's apt repo](https://www.percona.com/doc/percona-server/5.6/installation/apt_repo.html))
-- Postgres 9.3
+- Postgres 9.6 (via [postgres's apt repo](https://wiki.postgresql.org/wiki/Apt))
 - Redis 3.0 (via [ppa](https://launchpad.net/~chris-lea/+archive/ubuntu/redis-server))
 - Memcached 1.4
 - Git 2.9 (via [ppa](https://launchpad.net/~git-core/+archive/ubuntu/ppa))

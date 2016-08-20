@@ -1,4 +1,6 @@
-package "postgresql" do
+include_recipe "postgresql::apt_repository"
+
+package "postgresql-9.6" do
   action :install
 end
 
