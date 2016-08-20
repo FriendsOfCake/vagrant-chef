@@ -1,4 +1,4 @@
-default['nginx']['worker_processes']   = cpu[:total]
+default['nginx']['worker_processes']   = node['cpu']['total']
 default['nginx']['worker_connections'] = 2048
 default['nginx']['keepalive_timeout']  = 65
 default['nginx']['gzip_types'] = [

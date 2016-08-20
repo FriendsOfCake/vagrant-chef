@@ -28,26 +28,6 @@ cat > /root/.gemrc << 'EOF'
 gem: --no-ri --no-rdoc
 EOF
 
-echo "- updating deb repository"
-apt-get update > /dev/null
-
-echo "- installing build requirements"
-export DEBIAN_FRONTEND=noninteractive
-apt-get install -qq -y --force-yes build-essential unzip libssl-dev libxslt-dev libxml2-dev libreadline-dev zlib1g-dev > /dev/null
-apt-get install -qq -y --force-yes binutils-doc gcc autoconf flex bison libtool > /dev/null
-
-if [ ! -f /etc/apt/sources.list.d/brightbox-ruby-ng-trusty.list ]; then
-  echo "- installing latest ruby version"
-  apt-get install -qq -y --force-yes software-properties-common python-software-properties > /dev/null
-  add-apt-repository --yes ppa:brightbox/ruby-ng >> /dev/null 2>&1
-  apt-get update > /dev/null
-  apt-get install -qq -y --force-yes ruby2.2 ruby2.2-dev > /dev/null
-fi
-
-command -v foo >/dev/null 2>&1 || {
-  echo "- installing chef"
-  gem install chef --quiet --version 12.7.2 > /dev/null
-}
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"

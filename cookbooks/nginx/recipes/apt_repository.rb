@@ -1,5 +1,5 @@
 apt_repository "nginx" do
-  source "nginx"
   key "C300EE8C"
-  url "http://ppa.launchpad.net/nginx/stable/ubuntu"
+  uri "ppa:nginx/stable"
+  distribution node["lsb"]["codename"]
 end

@@ -1,3 +1,11 @@
+include_recipe "ruby::apt_repository"
+
+["ruby2.3", "ruby2.3-dev"].each do |pkg|
+  package pkg do
+    action :install
+  end
+end
+
 ["wget", "ssl-cert", "curl"].each do |pkg|
   package pkg do
     action :install

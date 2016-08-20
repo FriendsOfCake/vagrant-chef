@@ -1,7 +1,7 @@
 apt_repository "percona" do
-  source "percona"
   key "CD2EFD2A"
-  url "http://repo.percona.com/apt"
+  uri "http://repo.percona.com/apt"
+  components ["main"]
 end
 
 apt_preference "percona" do
