@@ -2,11 +2,11 @@
 *
 
 # but not these files
-cookbooks
-.gitignore
-.ruby-version
-.travis.yml
-Gemfile
-Gemfile.lock
-README.markdown
-Vagrantfile
+!/cookbooks
+!/.gitignore
+!/.ruby-version
+!/.travis.yml
+!/Gemfile
+!/Gemfile.lock
+!/README.markdown
+!/Vagrantfile
