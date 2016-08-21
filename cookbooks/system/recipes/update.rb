@@ -1,12 +1,7 @@
-execute "trigger apt-get update" do
-  command "true"
-  creates "/var/chef/apt_get_updated"
-  notifies :run, "execute[apt-get update]", :immediately
-end
-
 execute "apt-get update" do
-  action :nothing
+  action :run
   command "apt-get update && touch /var/chef/apt_get_updated"
+  creates "/var/chef/apt_get_updated"
 end
 
 [
