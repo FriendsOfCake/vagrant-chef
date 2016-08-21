@@ -8,7 +8,9 @@
     "mysql": {
       "databases": {
         "database_name": true,
-        "test_database_name": true
+        "test_database_name": true,
+        "my_app": true,
+        "test_my_app": true
       },
       "server_root_password": "bananas",
       "users": {
