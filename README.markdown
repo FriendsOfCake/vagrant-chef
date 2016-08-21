@@ -25,9 +25,9 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
   - [Database Access](#custom-domain-name)
   - [Multiple Repositories](#multiple-repositories)
   - [Interacting with the Virtual Machine](#interacting-with-the-virtual-machine)
-    - [Starting/Stopping the VM](#startingstopping-the-vm)
-    - [Updating the VM](#updating-the-vm)
-    - [Destroying the VM](#destroying-the-vm)
+    - [Starting/Stopping the VM](#startingstopping-the-virtual-machine)
+    - [Updating the VM](#updating-the-virtual-machine)
+    - [Destroying the VM](#destroying-the-virtual-machine)
 - [Bugs](#bugs)
 - [License](#license)
 
