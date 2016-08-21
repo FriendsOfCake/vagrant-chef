@@ -18,7 +18,7 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 ## Requirements
 
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Tested on 4.3.x.
-- [Vagrant](http://www.vagrantup.com/downloads.html). Tested on 1.6+
+- [Vagrant](http://www.vagrantup.com/downloads.html). Tested on 1.8+
 - Patience, and about an hour or so of your time
 - A fairly fast internet connection. Dial-up will take 3 days to get everything going ;)
 
