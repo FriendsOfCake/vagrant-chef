@@ -5,6 +5,7 @@ server {
   access_log /var/log/nginx/$sname-access.log;
 
   index index.php index.html;
+  sendfile off;
 
   location ~ /\.ht {
     deny all;
