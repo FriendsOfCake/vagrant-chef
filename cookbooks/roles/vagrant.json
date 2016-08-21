@@ -22,6 +22,7 @@
   },
   "default_attributes": {},
   "run_list": [
+    "recipe[system::init]",
     "recipe[system::update]",
     "recipe[hostname::default]",
     "recipe[git::install]",
