@@ -15,6 +15,22 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 - Composer
 - The ruby gems `heroku`, `hub`, and `travis`
 
+## Table Of Contents
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Developing your application](#developing-your-application)
+  - [Custom Domain Name](#custom-domain-name)
+  - [Database Access](#custom-domain-name)
+  - [Multiple Repositories](#multiple-repositories)
+  - [Interacting with the Virtual Machine](#interacting-with-the-virtual-machine)
+    - [Starting/Stopping the VM](#startingstopping-the-vm)
+    - [Updating the VM](#updating-the-vm)
+    - [Destroying the VM](#destroying-the-vm)
+- [Bugs](#bugs)
+- [License](#license)
+
 ## Requirements
 
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Tested on 5.0.x.
@@ -55,30 +71,6 @@ Once it is done, browse to `http://192.168.13.37/` in your browser, and you shou
 
 ## Usage
 
-### Custom Domain Name
-
-If you want to access the site using a custom domain name, edit your `/etc/hosts` file to have the following line:
-
-    192.168.13.37 www.app.dev app.dev
-
-If you are the root user on your box, you can do something like:
-
-```bash
-echo "192.168.13.37 www.app.dev app.dev" >> "/etc/hosts"
-```
-
-### Database Access
-
-MySQL is available at `192.168.13.37:3306` with either of the following credentials:
-
-- `root:bananas`
-- `user:password`
-
-Postgres is available at `192.168.13.37:5432` with either of the following credentials:
-
-- `postgres:password`
-- `username:password`
-
 ### Developing your application
 
 When you want to use vagrant instance for a development environment, you can create an `app` directory with the contents of your application. Within the vm, this would be an example of your directory structure:
@@ -104,7 +96,31 @@ Anything in `app/webroot/index.php` will be served up, and all other `index.php`
 
 Note, we recommend using the [FriendsOfCake/app-template](https://github.com/FriendsOfCake/app-template) for new applications.
 
-#### Multiple Repositories
+### Custom Domain Name
+
+If you want to access the site using a custom domain name, edit your `/etc/hosts` file to have the following line:
+
+    192.168.13.37 www.app.dev app.dev
+
+If you are the root user on your box, you can do something like:
+
+```bash
+echo "192.168.13.37 www.app.dev app.dev" >> "/etc/hosts"
+```
+
+### Database Access
+
+MySQL is available at `192.168.13.37:3306` with either of the following credentials:
+
+- `root:bananas`
+- `user:password`
+
+Postgres is available at `192.168.13.37:5432` with either of the following credentials:
+
+- `postgres:password`
+- `username:password`
+
+### Multiple Repositories
 
 If you want to use multiple repositories with this Vagrant setup, simply create an `apps` directory in the root of this repo:
 
@@ -127,7 +143,9 @@ echo "192.168.13.37 www.app.dev app.dev blog.dev" >> "/etc/hosts"
 
 Using this method, you can host as many applications within a single VM instance as desired.
 
-### Starting/Stopping Work
+### Interacting with the Virtual Machine
+
+#### Starting/Stopping the Virtual Machine
 
 You normally wont want to have the instance running full time. To pause it, simply perform the following in the command line:
 
@@ -143,7 +161,7 @@ vagrant resume
 
 You can also use `vagrant halt` and `vagrant up` for shutting down and booting the virtual machine.
 
-### Updating Vagrant
+#### Updating the Virtual Machine
 
 Running `vagrant provision` will reprovision the instance. You won't normally need to do the things in the **Installation** section, but this will ensure your setup is as up-to-date as possible.
 
@@ -154,7 +172,7 @@ git pull origin master
 vagrant reload --provision
 ```
 
-### Destroying the virtual machine
+#### Destroying the Virtual Machine
 
 We're sad to see you leave your work behind, but removing the virtual machine form your system isn't hard. Simply execute this command within the folder where `Vagrantfile` is located:
 
@@ -168,7 +186,9 @@ This will destroy your vagrant installation, and you can proceed to remove the p
 
 File a github issue.
 
-## MIT
+## License
+
+MIT
 
 Copyright (c) 2012 Jose Diaz-Gonzalez
 
