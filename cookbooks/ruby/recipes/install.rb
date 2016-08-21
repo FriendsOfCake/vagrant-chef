@@ -21,9 +21,13 @@ execute "update rubygems" do
   })
 end
 
+remote_file '/var/chef/heroku-install.sh' do
+  source node['ruby']['heroku']['install_url']
+end
+
 execute "install heroku" do
   action :run
-  command "command -v heroku || wget -qO- #{node['ruby']['heroku']['install_url']} | sh && touch /var/chef/heroku_installed"
+  command "sh /var/chef/heroku-install.sh && touch /var/chef/heroku_installed"
   creates "/var/chef/heroku_installed"
 end
 
