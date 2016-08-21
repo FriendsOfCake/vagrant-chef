@@ -48,5 +48,18 @@ template "/etc/nginx/sites-available/default" do
   variables(
     :server_name => node['nginx']['server_name']
   )
-  notifies :restart, "service[nginx]"
+  notifies :reload, "service[nginx]"
+end
+
+template "/etc/nginx/sites-available/apps" do
+  source "apps.dev.erb"
+  owner "root"
+  group "root"
+  mode 0644
+  notifies :reload, "service[nginx]"
+end
+
+link "/etc/nginx/sites-enabled/apps" do
+  to "/etc/nginx/sites-available/apps"
+  notifies :reload, "service[nginx]"
 end

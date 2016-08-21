@@ -82,24 +82,48 @@ Postgres is available at `192.168.13.37:5432` with either of the following crede
 When you want to use vagrant instance for a development environment, you can create an `app` directory with the contents of your application. Within the vm, this would be an example of your directory structure:
 
     |-/vagrant/app
-    |-/vagrant/app/app
-    | |-/vagrant/app/app/Config
-    | |-/vagrant/app/app/Console
-    | |-/vagrant/app/app/Controller
-    | |-/vagrant/app/app/Lib
-    | |-/vagrant/app/app/Model
-    | |-/vagrant/app/app/Plugin
-    | |-/vagrant/app/app/Vendor
-    | |-/vagrant/app/app/View
+    | |-/vagrant/app/bin
+    | |-/vagrant/app/config
+    | |-/vagrant/app/logs
+    | |-/vagrant/app/plugins
+    | |-/vagrant/app/src
+    |   |-/vagrant/app/src/Console
+    |   |-/vagrant/app/src/Controller
+    |   |-/vagrant/app/src/Model
+    |   |-/vagrant/app/src/Shell
+    |   |-/vagrant/app/src/Template
+    |   |-/vagrant/app/src/View
+    |-/vagrant/app/tests
     |-/vagrant/app/tmp
-    |-/vagrant/app/webroot
-    |-/vagrant/app/lib
-    |-/vagrant/app/plugin
     |-/vagrant/app/vendor
+    |-/vagrant/app/webroot
 
 Anything in `app/webroot/index.php` will be served up, and all other `index.php` files ignored.
 
 Note, we recommend using the [FriendsOfCake/app-template](https://github.com/FriendsOfCake/app-template) for new applications.
+
+##### Multiple Repositories
+
+If you want to use multiple repositories with this Vagrant setup, simply create an `apps` directory in the root of this repo:
+
+```shell
+cd path/to/vagrant-chef
+mkdir -p apps
+```
+
+Next, copy your CakePHP repository to the `apps` directory. For instance, if you want to have a `blog` project, your directory structure would be similar to the following:
+
+    |-/vagrant/apps
+    | |-/vagrant/apps/blog
+    |   |-/vagrant/apps/blog/webroot
+
+This application will be automatically available as `blog.dev`. Updating your hosts `/etc/hosts` entry to include this will allow you to access it in a browser:
+
+```
+echo "192.168.13.37 www.app.dev app.dev blog.dev" >> "/etc/hosts"
+```
+
+Using this method, you can host as many applications within a single VM instance as desired.
 
 ## Starting/Stopping Work
 
