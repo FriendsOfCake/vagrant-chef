@@ -13,6 +13,7 @@ include_recipe "php::apt_repository"
   "php7.0-imagick",
   "php7.0-intl",
   "php7.0-json",
+  "php7.0-mbstring",
   "php7.0-mcrypt",
   "php7.0-memcache",
   "php7.0-memcached",
