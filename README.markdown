@@ -1,4 +1,4 @@
-# Vagrant Chef for CakePHP [![Build Status](https://travis-ci.org/FriendsOfCake/vagrant-chef.svg)](https://travis-ci.org/FriendsOfCake/vagrant-chef)
+# Vagrant Chef for CakePHP [![Build Status](https://img.shields.io/travis/FriendsOfCake/vagrant-chef/master.svg?style=flat-square)](https://travis-ci.org/FriendsOfCake/vagrant-chef)
 
 
 Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the following features:
