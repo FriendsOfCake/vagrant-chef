@@ -53,7 +53,9 @@ Of note is that typing `vagrant ssh` while your vagrant instance is up will ssh 
 
 Once it is done, browse to `http://192.168.13.37/` in your browser, and you should have some sort of `It works!` page! At this point you can set your virtualhosts to point at the instance for maximum win.
 
-#### Custom Domain Name
+## Usage
+
+### Custom Domain Name
 
 If you want to access the site using a custom domain name, edit your `/etc/hosts` file to have the following line:
 
@@ -65,7 +67,7 @@ If you are the root user on your box, you can do something like:
 echo "192.168.13.37 www.app.dev app.dev" >> "/etc/hosts"
 ```
 
-#### Database Access
+### Database Access
 
 MySQL is available at `192.168.13.37:3306` with either of the following credentials:
 
@@ -77,7 +79,7 @@ Postgres is available at `192.168.13.37:5432` with either of the following crede
 - `postgres:password`
 - `username:password`
 
-#### Developing your application
+### Developing your application
 
 When you want to use vagrant instance for a development environment, you can create an `app` directory with the contents of your application. Within the vm, this would be an example of your directory structure:
 
@@ -102,7 +104,7 @@ Anything in `app/webroot/index.php` will be served up, and all other `index.php`
 
 Note, we recommend using the [FriendsOfCake/app-template](https://github.com/FriendsOfCake/app-template) for new applications.
 
-##### Multiple Repositories
+#### Multiple Repositories
 
 If you want to use multiple repositories with this Vagrant setup, simply create an `apps` directory in the root of this repo:
 
@@ -125,7 +127,7 @@ echo "192.168.13.37 www.app.dev app.dev blog.dev" >> "/etc/hosts"
 
 Using this method, you can host as many applications within a single VM instance as desired.
 
-## Starting/Stopping Work
+### Starting/Stopping Work
 
 You normally wont want to have the instance running full time. To pause it, simply perform the following in the command line:
 
@@ -141,7 +143,7 @@ vagrant resume
 
 You can also use `vagrant halt` and `vagrant up` for shutting down and booting the virtual machine.
 
-## Updating Vagrant
+### Updating Vagrant
 
 Running `vagrant provision` will reprovision the instance. You won't normally need to do the things in the **Installation** section, but this will ensure your setup is as up-to-date as possible.
 
@@ -152,7 +154,7 @@ git pull origin master
 vagrant reload --provision
 ```
 
-## Destroying the virtual machine
+### Destroying the virtual machine
 
 We're sad to see you leave your work behind, but removing the virtual machine form your system isn't hard. Simply execute this command within the folder where `Vagrantfile` is located:
 
