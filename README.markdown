@@ -13,7 +13,7 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 - Memcached 1.4
 - Git 2.9 (via [ppa](https://launchpad.net/~git-core/+archive/ubuntu/ppa))
 - Composer
-- The ruby gems `heroku`, `hub`, `travis` and `travis-lint`
+- The ruby gems `heroku`, `hub`, and `travis`
 
 ## Requirements
 
