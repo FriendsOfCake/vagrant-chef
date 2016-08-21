@@ -2,7 +2,6 @@ include_recipe "php::apt_repository"
 
 [
   "sqlite",
-  "php7.0",
   "php7.0-apcu",
   "php7.0-cli",
   "php7.0-common",
