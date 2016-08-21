@@ -5,7 +5,7 @@ Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the foll
 
 - Ubuntu 14.04 LTS Trusty Tahr
 - Nginx 1.10 (via [ppa](https://launchpad.net/~nginx/+archive/ubuntu/stable))
-- PHP 5.5
+- PHP 7.0 (via [ppa](https://launchpad.net/~ondrej/+archive/ubuntu/php))
 - Ruby 2.3 (via [ppa](https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng))
 - Percona MySQL 5.6 (via [percona's apt repo](https://www.percona.com/doc/percona-server/5.6/installation/apt_repo.html))
 - Postgres 9.6 (via [postgres's apt repo](https://wiki.postgresql.org/wiki/Apt))

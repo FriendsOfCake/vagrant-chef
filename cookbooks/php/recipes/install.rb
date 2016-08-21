@@ -1,24 +1,27 @@
+include_recipe "php::apt_repository"
+
 [
   "sqlite",
-  "php5-sqlite",
-  "php5-fpm",
-  "php5-cli",
-  "php5-common",
-  "php5-curl",
-  "php5-gd",
-  "php5-geoip",
-  "php5-gmp",
-  "php5-imagick",
-  "php5-intl",
-  "php5-json",
-  "php5-mcrypt",
-  "php5-memcache",
-  "php5-memcached",
-  "php5-redis",
-  "php5-mysql",
-  "php5-pgsql",
-  "php5-xdebug",
-  "php-apc",
+  "php7.0",
+  "php7.0-apcu",
+  "php7.0-cli",
+  "php7.0-common",
+  "php7.0-curl",
+  "php7.0-fpm",
+  "php7.0-gd",
+  "php7.0-geoip",
+  "php7.0-gmp",
+  "php7.0-imagick",
+  "php7.0-intl",
+  "php7.0-json",
+  "php7.0-mcrypt",
+  "php7.0-memcache",
+  "php7.0-memcached",
+  "php7.0-mysql",
+  "php7.0-pgsql",
+  "php7.0-redis",
+  "php7.0-sqlite",
+  "php7.0-xdebug",
   "php-pear",
 ].each do |pkg|
   package pkg do
@@ -26,24 +29,16 @@
   end
 end
 
-link "/etc/php5/cli/conf.d/mcrypt.ini" do
-  to "/etc/php5/mods-available/mcrypt.ini"
-end
-
-link "/etc/php5/fpm/conf.d/mcrypt.ini" do
-  to "/etc/php5/mods-available/mcrypt.ini"
-end
-
-service "php5-fpm" do
+service "php7.0-fpm" do
   action :nothing
 end
 
-template "/etc/php5/fpm/pool.d/www.conf" do
+template "/etc/php/7.0/fpm/pool.d/www.conf" do
   source "www.conf.erb"
   owner "root"
   group "root"
   mode 0644
-  notifies :restart, "service[php5-fpm]", :immediately
+  notifies :restart, "service[php7.0-fpm]", :immediately
 end
 
 remote_file node['php']['composer']['bin'] do
