@@ -5,6 +5,7 @@ execute "apt-get update" do
 end
 
 [
+  'apt-transport-https',
   'curl',
   'aptitude',
   'subversion',
