@@ -12,6 +12,7 @@
       },
       "server_root_password": "bananas",
       "users": {
+        "my_app": "secret",
         "user": "password"
       }
     },
