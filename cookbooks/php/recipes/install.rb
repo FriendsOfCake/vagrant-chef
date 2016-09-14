@@ -21,6 +21,7 @@ include_recipe "php::apt_repository"
   "php7.0-redis",
   "php7.0-sqlite",
   "php7.0-xdebug",
+  "php7.0-zip",
   "php7.0-apcu",
   "php-pear",
 ].each do |pkg|

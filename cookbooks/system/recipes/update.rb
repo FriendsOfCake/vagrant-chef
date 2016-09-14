@@ -9,6 +9,7 @@ end
   'curl',
   'aptitude',
   'subversion',
+  'unzip',
   'vim',
 ].each do |pkg|
   package pkg do
