@@ -1,5 +1,5 @@
 apt_repository "percona" do
-  key "CD2EFD2A"
+  key "8507EFA5"
   uri "https://repo.percona.com/apt"
   components ["main"]
   distribution node["lsb"]["codename"]
