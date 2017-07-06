@@ -19,6 +19,7 @@ include_recipe "php::apt_repository"
   "php7.0-mysql",
   "php7.0-pgsql",
   "php7.0-redis",
+  "php7.0-simplexml",
   "php7.0-sqlite",
   "php7.0-xdebug",
   "php7.0-zip",
