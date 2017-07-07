@@ -63,3 +63,8 @@ link "/etc/nginx/sites-enabled/apps" do
   to "/etc/nginx/sites-available/apps"
   notifies :reload, "service[nginx]"
 end
+
+directory '/var/log/nginx' do
+  owner "www-data"
+  group "www-data"
+end
