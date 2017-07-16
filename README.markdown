@@ -3,7 +3,7 @@
 
 Vagrant Chef creates a Vagrant installation for CakePHP using Chef with the following features:
 
-- Ubuntu 14.04 LTS Trusty Tahr
+- Ubuntu 16.04 LTS Xenial Xerus
 - Nginx 1.10 (via [ppa](https://launchpad.net/~nginx/+archive/ubuntu/stable))
 - PHP 7.0 (via [ppa](https://launchpad.net/~ondrej/+archive/ubuntu/php))
 - Ruby 2.3 (via [ppa](https://launchpad.net/~brightbox/+archive/ubuntu/ruby-ng))
