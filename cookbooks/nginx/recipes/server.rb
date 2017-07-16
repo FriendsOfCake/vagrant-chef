@@ -59,7 +59,7 @@ template "/etc/nginx/sites-available/apps" do
   notifies :reload, "service[nginx]"
 end
 
-link "/etc/nginx/sites-enabled/apps" do
+link "/etc/nginx/sites-enabled/multiple-apps" do
   to "/etc/nginx/sites-available/apps"
   notifies :reload, "service[nginx]"
 end
