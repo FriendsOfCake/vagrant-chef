@@ -35,6 +35,6 @@ server {
 
 server {
   listen 80;
-  server_name www.<%= @server_name %>;
-  rewrite ^ http://<%= @server_name %>$uri permanent;
+  server_name "~^www.(.*)$" ;
+  return 301 $scheme://$1$request_uri ;
 }
