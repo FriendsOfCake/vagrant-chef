@@ -41,7 +41,7 @@ template "/etc/nginx/nginx.conf" do
 end
 
 template "/etc/nginx/sites-available/default" do
-  source "app.dev.erb"
+  source "app.test.erb"
   owner "root"
   group "root"
   mode 0644
@@ -52,7 +52,7 @@ template "/etc/nginx/sites-available/default" do
 end
 
 template "/etc/nginx/sites-available/apps" do
-  source "apps.dev.erb"
+  source "apps.test.erb"
   owner "root"
   group "root"
   mode 0644

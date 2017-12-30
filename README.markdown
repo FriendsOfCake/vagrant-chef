@@ -100,12 +100,12 @@ Note, we recommend using the [FriendsOfCake/app-template](https://github.com/Fri
 
 If you want to access the site using a custom domain name, edit your `/etc/hosts` file to have the following line:
 
-    192.168.13.37 www.app.dev app.dev
+    192.168.13.37 www.app.test app.test
 
 If you are the root user on your box, you can do something like:
 
 ```bash
-echo "192.168.13.37 www.app.dev app.dev" >> "/etc/hosts"
+echo "192.168.13.37 www.app.test app.test" >> "/etc/hosts"
 ```
 
 ### Database Access
@@ -135,10 +135,10 @@ Next, copy your CakePHP repository to the `apps` directory. For instance, if you
     | |-/vagrant/apps/blog
     |   |-/vagrant/apps/blog/webroot
 
-This application will be automatically available as `blog.dev`. Updating your hosts `/etc/hosts` entry to include this will allow you to access it in a browser:
+This application will be automatically available as `blog.test`. Updating your hosts `/etc/hosts` entry to include this will allow you to access it in a browser:
 
 ```
-echo "192.168.13.37 www.app.dev app.dev blog.dev" >> "/etc/hosts"
+echo "192.168.13.37 www.app.test app.test blog.test" >> "/etc/hosts"
 ```
 
 Using this method, you can host as many applications within a single VM instance as desired.
