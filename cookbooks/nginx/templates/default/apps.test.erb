@@ -1,6 +1,6 @@
 server {
   listen 80;
-  server_name ~^(?<sname>.+)\.dev;
+  server_name ~^(?<sname>.+)\.test;
   root /vagrant/apps/$sname/webroot;
   access_log /var/log/nginx/$sname-access.log;
 
