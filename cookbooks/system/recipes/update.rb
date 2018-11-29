@@ -11,6 +11,7 @@ end
   'subversion',
   'unzip',
   'vim',
+  'postfix',
 ].each do |pkg|
   package pkg do
     action :install
