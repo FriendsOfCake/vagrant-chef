@@ -18,6 +18,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--cpuexecutioncap", "90"]
     v.customize ["modifyvm", :id, "--memory", "1024"]
     v.customize ["modifyvm", :id, "--cpus", "1"]
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
   config.vm.provider :vmware_fusion do |v, override|
@@ -31,6 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision :chef_solo do |chef|
+    chef.arguments = "--chef-license accept"
     chef.cookbooks_path = "cookbooks"
     chef.roles_path = "cookbooks/roles"
     chef.add_role("vagrant")
