@@ -33,6 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision :chef_solo do |chef|
+    chef.arguments = "--chef-license accept"
     chef.cookbooks_path = "cookbooks"
     chef.roles_path = "cookbooks/roles"
     chef.add_role("vagrant")
