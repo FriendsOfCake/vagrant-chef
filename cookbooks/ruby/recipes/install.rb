@@ -48,7 +48,7 @@ end
 ].each do |g|
   gem_package g do
     gem_binary("/usr/bin/gem")
-    options "--no-ri --no-rdoc --verbose"
+    options "--no-document --verbose"
     action :upgrade
   end
 end
