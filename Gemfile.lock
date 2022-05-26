@@ -21,7 +21,7 @@ GEM
     rufus-lru (1.0.5)
     treetop (1.5.3)
       polyglot (~> 0.3)
-    yajl-ruby (1.2.1)
+    yajl-ruby (1.4.3)
 
 PLATFORMS
   ruby
